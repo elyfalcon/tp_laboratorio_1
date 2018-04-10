@@ -1,0 +1,25 @@
+# depslib dependency file v1.0
+1522089669 source:c:\eli\curso utn\tp1\main.c
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+	"funciones.h"
+
+1522090205 c:\eli\curso utn\tp1\funciones.h
+
+1522627563 source:c:\utn\programacion i\tp1\main.c
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+	"funciones.h"
+
+1522628061 c:\utn\programacion i\tp1\funciones.h
+
+1523384611 source:c:\eli\utn\tp1\main.c
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+	"funciones.h"
+
+1523383564 c:\eli\utn\tp1\funciones.h
+
