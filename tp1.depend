@@ -21,5 +21,41 @@
 	<conio.h>
 	"funciones.h"
 
-1523383564 c:\eli\utn\tp1\funciones.h
+1523469652 c:\eli\utn\tp1\funciones.h
+	"funciones.c"
+
+1523469715 c:\eli\utn\tp1\funciones.c
+	<stdio.h>
+	<stdlib.h>
+	"funciones.h"
+
+1523500126 source:c:\utn\tp1\funciones.c
+	<stdio.h>
+	<stdlib.h>
+	"funciones.h"
+
+1523500283 c:\utn\tp1\funciones.h
+
+1523499697 source:c:\utn\tp1\main.c
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+
+1523469716 c:\utn\tp1\funciones.c
+	<stdio.h>
+	<stdlib.h>
+	"funciones.h"
+
+1523500128 source:c:\eli\tp\funciones.c
+	<stdio.h>
+	<stdlib.h>
+	"funciones.h"
+
+1523500284 c:\eli\tp\funciones.h
+
+1523500284 source:c:\eli\tp\main.c
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+	"funciones.h"
 
