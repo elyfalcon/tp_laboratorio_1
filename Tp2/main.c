@@ -9,7 +9,11 @@ int main()
     char seguir='s';
     int opcion=0;
     int dni,i;
+    //Se crea el array de personas y se lo inicializa inicializa
     EPersona lista[TAMANIO];
+    Inicializa_Persona(lista,TAMANIO);
+    // Carga datos de test
+    HardcodePersona(lista);
 
     while(seguir=='s')
     {
@@ -17,7 +21,7 @@ int main()
         printf("2- Borrar persona\n");
         printf("3- Imprimir lista ordenada por  nombre\n");
         printf("4- Imprimir grafico de edades\n\n");
-        printf("5- Salir\n");
+        printf("5- Salir\n\n");
 
         scanf("%d",&opcion);
 
@@ -38,6 +42,7 @@ int main()
                 ListarPersonas(lista,TAMANIO);
                 break;
             case 4:
+                GraficoEdades(lista,TAMANIO);
                 break;
             case 5:
                 seguir = 'n';

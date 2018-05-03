@@ -24,11 +24,14 @@ int obtenerEspacioLibre(EPersona lista[]);
  * @return el indice en donde se encuentra el elemento que coincide con el parametro dni
  */
 int buscarPorDni(EPersona lista[], int dni);
+int Inicializa_Persona(EPersona lista[],int limite);
+void HardcodePersona(EPersona lista[]);
 void BorrarUnaPersona(EPersona lista[],int indice);
 void AltaUnaPersona(EPersona lista[]);
 void AltaPersonas(EPersona lista[],int cantidad);
 void MostrarUnaPersona(EPersona persona);
 void ListarPersonas(EPersona lista[],int cantidad);
 void OrdenarListado(EPersona lista[],int cantidad);
+void GraficoEdades(EPersona lista[],int cantidad);
 
 #endif // FUNCIONES_H_INCLUDED

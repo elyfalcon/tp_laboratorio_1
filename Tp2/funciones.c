@@ -5,6 +5,22 @@
 #define FREE 0
 #define OCUPADO 1
 
+int Inicializa_Persona(EPersona lista[],int limite)
+{
+   int i;
+   int retorno=-1;
+   if(limite >0 && lista !=NULL)
+   {
+       for(i=0;i<limite;i++)
+       {
+           retorno=0;
+           lista[i].estado=FREE;
+        }
+   }
+    return retorno;
+}
+
+
 int obtenerEspacioLibre(EPersona lista[])
 {
 int i,lim;
@@ -98,6 +114,7 @@ void MostrarUnaPersona(EPersona persona)
 void ListarPersonas(EPersona lista[],int cantidad)
 {
     int i;
+    system("cls");
     if(lista !=NULL)
     {
         for(i=0;i<cantidad;i++)
@@ -141,4 +158,90 @@ for(i=0;i<cantidad-1;i++)
 }
 
 }
+void HardcodePersona(EPersona lista[])
+{
+        strcpy(lista[1].nombre,"Maria");
+        lista[1].dni=25896325;
+        lista[1].edad=21;
+        lista[1].estado=OCUPADO;
+        strcpy(lista[2].nombre,"Juan");
+        lista[2].dni=24785212;
+        lista[2].edad=25;
+        lista[2].estado=OCUPADO;
+        strcpy(lista[3].nombre,"Anabella");
+        lista[3].dni=23698523;
+        lista[3].edad=28;
+        lista[3].estado=OCUPADO;
 
+}
+void GraficoEdades(EPersona lista[],int cantidad)
+{
+ int i,j;
+ int contmenor=0;
+ int contbetween=0;
+ int contmayor=0;
+ int vecontador[3];
+ int max;
+
+ for(i=0;i<3;i++)
+ {
+     vecontador[i]=0;
+ }
+
+    if(cantidad>0 && lista!=NULL)
+    {
+        for(i=0;i<cantidad;i++)
+        {
+            if(lista[i].edad<18 )
+                {
+                contmenor=contmenor+1;
+           //    vecontador[1]=vecontador[1]+1;
+                }
+
+            if(lista[i].edad >=19 && lista[i].edad<=35)
+            {
+           //     vecontador[2]=vecontador[2]+1;
+                contbetween=contbetween+1;
+            }
+
+            if(lista[i].edad >35)
+            {
+          //      vecontador[3]=vecontador[3]+1;
+                contmayor=contmayor+1;
+            }
+
+        }
+    }
+  //ahora grafico a partir de los vectores que contienen los rangos de edad
+ printf("%d",vecontador);
+ vecontador[1]=contmenor;
+ vecontador[2]=contbetween;
+ vecontador[3]=contmayor;
+ //Busco el mayor
+ max=vecontador[0];
+
+      for(i=0;i<3;i++)
+      {
+          if(vecontador[i]>max)
+          {
+              max=vecontador[i];
+          }
+      }
+
+     for(i=max;i>0;i--)
+      {
+         for(j=0;j<3;j++)
+         {
+            if(vecontador[j] >=i)
+            {
+                 printf("*");
+            }
+            else{
+            printf(" ");
+            printf("\n");
+            }
+        }
+
+      }
+
+}
