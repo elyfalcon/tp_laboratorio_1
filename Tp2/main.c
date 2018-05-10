@@ -25,20 +25,16 @@ int main()
 
         scanf("%d",&opcion);
 
+
         switch(opcion)
         {
             case 1:
-                AltaPersonas(lista,20);
+                AltaPersonas(lista,TAMANIO);
                 break;
             case 2:
-                printf("Ingrese el dni que desea borrar: ");
-                fflush(stdin);
-                scanf("%d",&dni);
-                i=buscarPorDni(lista,dni);
-                BorrarUnaPersona(lista,i);
+                BorrarUnaPersona(lista);
                 break;
             case 3:
-                OrdenarListado(lista,TAMANIO);
                 ListarPersonas(lista,TAMANIO);
                 break;
             case 4:
@@ -46,6 +42,9 @@ int main()
                 break;
             case 5:
                 seguir = 'n';
+                break;
+            default:
+                printf("\nDebe ingresar una opcion correcta: ");
                 break;
         }
     }
