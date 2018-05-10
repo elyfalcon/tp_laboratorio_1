@@ -32,7 +32,7 @@ int main()
                 AltaPersonas(lista,TAMANIO);
                 break;
             case 2:
-                BorrarUnaPersona(lista,dni);
+                BorrarUnaPersona(lista);
                 break;
             case 3:
                 ListarPersonas(lista,TAMANIO);

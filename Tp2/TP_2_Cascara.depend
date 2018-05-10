@@ -25,7 +25,6 @@
 	<string.h>
 	"funciones.h"
 
-<<<<<<< HEAD
 1525307218 source:c:\eli\utn\para el parcial\tp2\main.c
 	<stdio.h>
 	<stdlib.h>
@@ -33,12 +32,12 @@
 
 1525307194 c:\eli\utn\para el parcial\tp2\funciones.h
 
-1525970249 source:c:\eli\utn\tp2\main.c
+1525977831 source:c:\eli\utn\tp2\main.c
 	<stdio.h>
 	<stdlib.h>
 	"funciones.h"
 
-1525970245 c:\eli\utn\tp2\funciones.h
+1525977908 c:\eli\utn\tp2\funciones.h
 
 1525970805 source:c:\eli\utn\tp2\funciones.c
 	<stdio.h>
@@ -48,5 +47,3 @@
 
 1525802850 source:c:\eli\utn\tp2\persona.c
 
-=======
->>>>>>> 8e7a25e7d94d44a909af33de63a1f5d486fb215d
