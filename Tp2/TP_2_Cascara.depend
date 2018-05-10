@@ -47,6 +47,7 @@
 
 1525802850 source:c:\eli\utn\tp2\persona.c
 
+<<<<<<< HEAD
 1525977832 source:c:\utn\jackie\tp2\main.c
 	<stdio.h>
 	<stdlib.h>
@@ -56,3 +57,5 @@
 
 1525802852 source:c:\utn\jackie\tp2\persona.c
 
+=======
+>>>>>>> 528fc4615e106b671d6b918d94dd0c1668087a78
