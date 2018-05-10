@@ -24,6 +24,7 @@ int obtenerEspacioLibre(EPersona lista[]);
  * @return el indice en donde se encuentra el elemento que coincide con el parametro dni
  */
 int buscarPorDni(EPersona lista[], int dni);
+<<<<<<< HEAD
 
 /** \brief Se marcan todas las posiciones del array como libres
  *          colocando en cada elmento el flag de Estado en FREE
@@ -51,6 +52,10 @@ void HardcodePersona(EPersona lista[]);
  */
 int PedirEntero(char mensaje[]);
 
+=======
+int Inicializa_Persona(EPersona lista[],int limite);
+void HardcodePersona(EPersona lista[]);
+>>>>>>> 8e7a25e7d94d44a909af33de63a1f5d486fb215d
 void BorrarUnaPersona(EPersona lista[],int indice);
 void AltaUnaPersona(EPersona lista[]);
 void AltaPersonas(EPersona lista[],int cantidad);
@@ -58,6 +63,9 @@ void MostrarUnaPersona(EPersona persona);
 void ListarPersonas(EPersona lista[],int cantidad);
 void OrdenarListado(EPersona lista[],int cantidad);
 void GraficoEdades(EPersona lista[],int cantidad);
+<<<<<<< HEAD
 int EsDniValido(int dato);
+=======
+>>>>>>> 8e7a25e7d94d44a909af33de63a1f5d486fb215d
 
 #endif // FUNCIONES_H_INCLUDED

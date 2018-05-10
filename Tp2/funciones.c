@@ -19,6 +19,7 @@ int Inicializa_Persona(EPersona lista[],int limite)
    }
     return retorno;
 }
+<<<<<<< HEAD
 int EsDniValido(int dato)
 {
   if(dato>=1000000 && dato<=99999999)
@@ -26,6 +27,9 @@ int EsDniValido(int dato)
 
   return 0;
 }
+=======
+
+>>>>>>> 8e7a25e7d94d44a909af33de63a1f5d486fb215d
 
 int obtenerEspacioLibre(EPersona lista[])
 {
@@ -163,7 +167,10 @@ void MostrarUnaPersona(EPersona persona)
 void ListarPersonas(EPersona lista[],int cantidad)
 {
     int i;
+<<<<<<< HEAD
 
+=======
+>>>>>>> 8e7a25e7d94d44a909af33de63a1f5d486fb215d
     system("cls");
     if(lista !=NULL)
     {
@@ -210,6 +217,7 @@ for(i=0;i<cantidad-1;i++)
 }
 void HardcodePersona(EPersona lista[])
 {
+<<<<<<< HEAD
        int i;
        EPersona personas[] = {
            {"Juan", 21, OCUPADO, 25963258},
@@ -232,11 +240,26 @@ void HardcodePersona(EPersona lista[])
           lista[i].estado=estado[i];
       }
 
+=======
+        strcpy(lista[1].nombre,"Maria");
+        lista[1].dni=25896325;
+        lista[1].edad=21;
+        lista[1].estado=OCUPADO;
+        strcpy(lista[2].nombre,"Juan");
+        lista[2].dni=24785212;
+        lista[2].edad=25;
+        lista[2].estado=OCUPADO;
+        strcpy(lista[3].nombre,"Anabella");
+        lista[3].dni=23698523;
+        lista[3].edad=28;
+        lista[3].estado=OCUPADO;
+>>>>>>> 8e7a25e7d94d44a909af33de63a1f5d486fb215d
 
 }
 void GraficoEdades(EPersona lista[],int cantidad)
 {
  int i,j;
+<<<<<<< HEAD
  EPersona aux[cantidad];
  int vecontador[4];
  int contmenor=0;
@@ -250,12 +273,24 @@ void GraficoEdades(EPersona lista[],int cantidad)
      vecontador[i]=0;
 
      printf("Las edades %d\n",lista[i].edad);
+=======
+ int contmenor=0;
+ int contbetween=0;
+ int contmayor=0;
+ int vecontador[3];
+ int max;
+
+ for(i=0;i<3;i++)
+ {
+     vecontador[i]=0;
+>>>>>>> 8e7a25e7d94d44a909af33de63a1f5d486fb215d
  }
 
     if(cantidad>0 && lista!=NULL)
     {
         for(i=0;i<cantidad;i++)
         {
+<<<<<<< HEAD
             if(lista[i].edad <18 )
                 {
                 printf("soy menor de 18");
@@ -295,6 +330,37 @@ printf("contmenor:  %d  betw:  %d  conmay:  %d",contmenor,between,contmayor);
  max=vecontador[0];
 
       for(i=0;i<2;i++)
+=======
+            if(lista[i].edad<18 )
+                {
+                contmenor=contmenor+1;
+           //    vecontador[1]=vecontador[1]+1;
+                }
+
+            if(lista[i].edad >=19 && lista[i].edad<=35)
+            {
+           //     vecontador[2]=vecontador[2]+1;
+                contbetween=contbetween+1;
+            }
+
+            if(lista[i].edad >35)
+            {
+          //      vecontador[3]=vecontador[3]+1;
+                contmayor=contmayor+1;
+            }
+
+        }
+    }
+  //ahora grafico a partir de los vectores que contienen los rangos de edad
+ printf("%d",vecontador);
+ vecontador[1]=contmenor;
+ vecontador[2]=contbetween;
+ vecontador[3]=contmayor;
+ //Busco el mayor
+ max=vecontador[0];
+
+      for(i=0;i<3;i++)
+>>>>>>> 8e7a25e7d94d44a909af33de63a1f5d486fb215d
       {
           if(vecontador[i]>max)
           {
@@ -304,6 +370,7 @@ printf("contmenor:  %d  betw:  %d  conmay:  %d",contmenor,between,contmayor);
 
      for(i=max;i>0;i--)
       {
+<<<<<<< HEAD
          for(j=0;j<2;j++)
          {
             if(vecontador[j] >=i)
@@ -313,6 +380,17 @@ printf("contmenor:  %d  betw:  %d  conmay:  %d",contmenor,between,contmayor);
             else{
             printf("  ");
             putchar("\n");
+=======
+         for(j=0;j<3;j++)
+         {
+            if(vecontador[j] >=i)
+            {
+                 printf("*");
+            }
+            else{
+            printf(" ");
+            printf("\n");
+>>>>>>> 8e7a25e7d94d44a909af33de63a1f5d486fb215d
             }
         }
 
