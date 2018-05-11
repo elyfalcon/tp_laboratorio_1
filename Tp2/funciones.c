@@ -140,13 +140,13 @@ void BorrarUnaPersona(EPersona lista[])
 {
     int i;
     int index;
-    char resp='S';
+
 
     system("cls");
     i=PedirEntero("Ingrese el DNI: ");
     index= buscarPorDni(lista,i);
 
-  if(index !=-1 && resp=='S')
+  if(index !=-1)
     {
        system("pause");
        lista[index].estado=0;
