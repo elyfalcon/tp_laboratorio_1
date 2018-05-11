@@ -74,7 +74,7 @@ void AltaUnaPersona(EPersona lista[])
         dni=PedirEntero("Ingrese el dni: "); //llama a la funcion Pedir entero para el ingreso
         SiExiste=buscarPorDni(lista,dni);
 
-    if(SiExiste=-1)
+    if((SiExiste=-1))
         {
        indice=obtenerEspacioLibre(lista);
 
@@ -214,7 +214,7 @@ for(i=0;i<cantidad-1;i++)
 void HardcodePersona(EPersona lista[])
 {
        int i;
-       char nombre[][20]= {"Juan","Luis","Maria","Jose"};
+       char nombre[][20]= {"Juan Garcia","Luis Perez","Maria Riera","Jose Fernandez"};
        int dni[]= {25963258,22897451,17852369,45896321};
        int edad[]={21,18,45,15};
        int estado[]={OCUPADO,OCUPADO,OCUPADO,OCUPADO};
@@ -250,7 +250,10 @@ void GraficoEdades(EPersona lista[],int cantidad)
     {
         for(i=0;i<cantidad;i++)
         {
-            if(lista[i].edad <18 && lista[i].edad >0)
+
+          if(lista[i].estado==1)
+        {
+            if(lista[i].edad <=18 && lista[i].edad >0)
                 {
                 men++;
                 }
@@ -259,12 +262,13 @@ void GraficoEdades(EPersona lista[],int cantidad)
             {
                 entre++;
             }
-            else
+
             if(lista[i].edad >=35 && lista[i].edad <100)
             {
                 may++;
             }
 
+        }
         }
     }
   //ahora grafico a partir de los vectores que contienen los rangos de edad
@@ -286,27 +290,25 @@ for(i=0;i<3;i++)
           if(vecontador[i]>max)
           {
               max=vecontador[i];
-          }
+        }
       }
 
      for(i=max;i>0;i--)
       {
          for(j=0;j<3;j++)
-         {
-            if(vecontador[j]>=i)
-            {
-                 printf("   *");
-            }
-            else{
-            printf("   ");
-            printf("\n");
-            }
-        }
 
+            if(vecontador[j]>=i)
+
+                 printf("   *");
+
+            else
+            printf("    ");
+
+            putchar('\n');
       }
 
-printf("\n<18  >19<35  >35\n\n");
-printf("\nGrafico de Columnas que muestra la cantidad de personas por rango de edades\n");
+printf("\n<18 >19<35 >35\n\n");
+printf("\nGrafico para una estadistica de %d persona/s con edad menor a 18, %d persona/s con edades entre 19 y 35,\n y %d persona/s con edades mayores a 35\n",men,entre,may);
 system("pause");
 system("cls");
 }

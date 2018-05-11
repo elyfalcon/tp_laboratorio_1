@@ -32,17 +32,18 @@
 
 1525307194 c:\eli\utn\para el parcial\tp2\funciones.h
 
-1525977831 source:c:\eli\utn\tp2\main.c
+1525977832 source:c:\eli\utn\tp2\main.c
 	<stdio.h>
 	<stdlib.h>
 	"funciones.h"
 
-1525977908 c:\eli\utn\tp2\funciones.h
+1525998824 c:\eli\utn\tp2\funciones.h
 
-1525970805 source:c:\eli\utn\tp2\funciones.c
+1526051863 source:c:\eli\utn\tp2\funciones.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
+	<ctype.h>
 	"funciones.h"
 
 1525802850 source:c:\eli\utn\tp2\persona.c
