@@ -93,15 +93,16 @@ void AltaUnaPersona(EPersona lista[])
         else
         {
             printf("\nEl Dni ya esta ingresado: \n");
+            system("pause");
         }
 }
 void AltaPersonas(EPersona lista[],int cantidad)
 {
     int limite=0,i;
+    system("cls");
     printf("Cuantas personas desea ingresar? ");
     fflush(stdin);
     scanf("%d",&limite);
-    printf("%d",limite);
 
     if(limite<=cantidad)
     {
@@ -110,6 +111,7 @@ void AltaPersonas(EPersona lista[],int cantidad)
         AltaUnaPersona(lista);
         }
     }
+    system("pause");
     system("cls");
 }
 
@@ -130,7 +132,6 @@ int buscarPorDni(EPersona lista[], int dni)
                 flag=i;
                 break;
             }
-
         }
   }
   return flag;
@@ -150,7 +151,6 @@ void BorrarUnaPersona(EPersona lista[])
        system("pause");
        lista[index].estado=0;
        lista[index].dni=0;
-
     }
     else
     {
@@ -162,10 +162,10 @@ system("cls");
 }
 void MostrarUnaPersona(EPersona persona)
 {
-
     printf("\nNombre: %s  Edad: %d DNI: %d Estado: %d\n",persona.nombre,persona.edad,persona.dni,persona.estado);
 
 }
+
 void ListarPersonas(EPersona lista[],int cantidad)
 {
     int i;
@@ -179,7 +179,6 @@ void ListarPersonas(EPersona lista[],int cantidad)
             if(lista[i].estado==1)
               MostrarUnaPersona(lista[i]);
         }
-
     }
     system("pause");
     system("cls");
@@ -209,7 +208,6 @@ for(i=0;i<cantidad-1;i++)
             lista[j].estado=aux[i].estado;
         }
     }
-
 }
 
 }
@@ -239,6 +237,8 @@ void GraficoEdades(EPersona lista[],int cantidad)
  int entre=0;
  int may=0;
  int max;
+
+ system("cls");
 
  for(i=0;i<4;i++)
  {
