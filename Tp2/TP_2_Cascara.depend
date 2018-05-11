@@ -47,15 +47,19 @@
 
 1525802850 source:c:\eli\utn\tp2\persona.c
 
-<<<<<<< HEAD
 1525977832 source:c:\utn\jackie\tp2\main.c
 	<stdio.h>
 	<stdlib.h>
 	"funciones.h"
 
-1525977910 c:\utn\jackie\tp2\funciones.h
+1525998823 c:\utn\jackie\tp2\funciones.h
 
 1525802852 source:c:\utn\jackie\tp2\persona.c
 
-=======
->>>>>>> 528fc4615e106b671d6b918d94dd0c1668087a78
+1525998281 source:c:\utn\jackie\tp2\funciones.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	"funciones.h"
+

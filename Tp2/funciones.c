@@ -30,7 +30,8 @@ int EsDniValido(int dato)
 
 int obtenerEspacioLibre(EPersona lista[])
 {
-int i,lim;
+int i;
+int lim=20;
 int posicion;
 
 if(lim>0 && lista !=NULL)
@@ -70,10 +71,7 @@ void AltaUnaPersona(EPersona lista[])
    long int dni=0;
    int SiExiste=0;
 
-
-  /* if(lista != NULL)*/
-
-        dni=PedirEntero("Ingrese el dni: ");
+        dni=PedirEntero("Ingrese el dni: "); //llama a la funcion Pedir entero para el ingreso
         SiExiste=buscarPorDni(lista,dni);
 
     if(SiExiste=-1)
@@ -132,6 +130,7 @@ int buscarPorDni(EPersona lista[], int dni)
                 flag=i;
                 break;
             }
+
         }
   }
   return flag;
@@ -145,17 +144,18 @@ void BorrarUnaPersona(EPersona lista[])
     system("cls");
     i=PedirEntero("Ingrese el DNI: ");
     index= buscarPorDni(lista,i);
-    printf("\nConfirma la baja (S/N): ");
-    scanf("%s",&resp);
-    resp=toupper(resp);
 
-  if((index!=-1) && (resp='S'))
+  if(index !=-1 && resp=='S')
     {
-       lista[index].estado=FREE;
+       system("pause");
+       lista[index].estado=0;
+       lista[index].dni=0;
+
     }
     else
     {
-      printf("Persona no encontrada!!!");
+      printf("Persona no encontrada!!!\n");
+      system("pause");
      }
 system("cls");
 
@@ -164,20 +164,19 @@ void MostrarUnaPersona(EPersona persona)
 {
 
     printf("\nNombre: %s  Edad: %d DNI: %d Estado: %d\n",persona.nombre,persona.edad,persona.dni,persona.estado);
-   // printf("------------------------------------------------------\n");
+
 }
 void ListarPersonas(EPersona lista[],int cantidad)
 {
     int i;
-
     system("cls");
-    if(lista !=NULL)
+    if(cantidad >0 && lista !=NULL)
     {
         OrdenarListado(lista,cantidad);
 
         for(i=0;i<cantidad;i++)
         {
-            if(lista[i].estado==OCUPADO)
+            if(lista[i].estado==1)
               MostrarUnaPersona(lista[i]);
         }
 
@@ -239,21 +238,12 @@ void GraficoEdades(EPersona lista[],int cantidad)
  int men=0;
  int entre=0;
  int may=0;
-<<<<<<< HEAD
-=======
-
->>>>>>> 528fc4615e106b671d6b918d94dd0c1668087a78
  int max;
 
  for(i=0;i<4;i++)
  {
      vecontador[i]=0;
 
-<<<<<<< HEAD
-   //  printf("Las edades %d\n",lista[i].edad);
-=======
-     printf("Las edades %d\n",lista[i].edad);
->>>>>>> 528fc4615e106b671d6b918d94dd0c1668087a78
  }
 
     if(cantidad>0 && lista!=NULL)
@@ -262,41 +252,23 @@ void GraficoEdades(EPersona lista[],int cantidad)
         {
             if(lista[i].edad <18 && lista[i].edad >0)
                 {
-<<<<<<< HEAD
                 men++;
-=======
-                printf("soy menor de 18");
-                vecontador[men];
-                men++;
-
->>>>>>> 528fc4615e106b671d6b918d94dd0c1668087a78
                 }
 
             if(lista[i].edad >=19 && lista[i].edad <=35)
             {
-<<<<<<< HEAD
-=======
-                vecontador[entre];
->>>>>>> 528fc4615e106b671d6b918d94dd0c1668087a78
                 entre++;
             }
             else
-            if(lista[i].edad >35 && lista[i].edad <100)
+            if(lista[i].edad >=35 && lista[i].edad <100)
             {
-<<<<<<< HEAD
                 may++;
-=======
-                vecontador[may];
-                may++;
-
->>>>>>> 528fc4615e106b671d6b918d94dd0c1668087a78
             }
 
         }
     }
   //ahora grafico a partir de los vectores que contienen los rangos de edad
 
-<<<<<<< HEAD
 
 //Inicializo el array
 
@@ -306,14 +278,10 @@ for(i=0;i<3;i++)
 {
     vecontador[i]=auxiliar[i];
     }
-=======
-printf("\nmenor:  %d  betw:  %d  conmay:  %d",men,entre,may);
-
->>>>>>> 528fc4615e106b671d6b918d94dd0c1668087a78
  //Busco el mayor
  max=vecontador[0];
 
-      for(i=0;i<4;i++)
+      for(i=0;i<3;i++)
       {
           if(vecontador[i]>max)
           {
@@ -323,21 +291,14 @@ printf("\nmenor:  %d  betw:  %d  conmay:  %d",men,entre,may);
 
      for(i=max;i>0;i--)
       {
-         for(j=0;j<4;j++)
+         for(j=0;j<3;j++)
          {
-            if(vecontador[j] >=i)
+            if(vecontador[j]>=i)
             {
-<<<<<<< HEAD
                  printf("   *");
             }
             else{
             printf("   ");
-=======
-                 printf(" *");
-            }
-            else{
-            printf("  ");
->>>>>>> 528fc4615e106b671d6b918d94dd0c1668087a78
             printf("\n");
             }
         }
