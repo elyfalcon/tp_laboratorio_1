@@ -71,3 +71,10 @@
 
 1525998824 c:\eli\tp_laboratorio_1\tp_laboratorio_1\tp2\funciones.h
 
+1526062888 source:c:\eli\tp_laboratorio_1\tp_laboratorio_1\tp2\funciones.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	"funciones.h"
+
