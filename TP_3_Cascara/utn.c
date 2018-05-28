@@ -5,6 +5,7 @@
 #include "funciones.h"
 
 
+
 void ValidaMenu(int opcion,int limite_inferior,int limite_superior)
 {
      if(opcion <limite_inferior || opcion >limite_superior)
@@ -67,7 +68,6 @@ void AltaUnaxxxx(EMovie movie[],int cantidad)
 {
    int indice;
    int flag=-1;
-   int cant=0;
    char resp='S';
 
         while(resp=='S')
@@ -93,7 +93,6 @@ void AltaUnaxxxx(EMovie movie[],int cantidad)
             scanf("%d",&movie[indice].puntaje);
             movie[indice].estado=1;
             flag=1;
-            cant++;
             resp=Responder("\nContinua ingresando otra movie?: (S/N)");
         }//fin if
         else
@@ -102,7 +101,8 @@ void AltaUnaxxxx(EMovie movie[],int cantidad)
         }
 
         }//fin while
-            AgregarPeliculas(movie,cantidad,cant);
+
+            GuardarPelicula(movie,cantidad);
 }
 int Inicializa_Peliculas(EMovie lista_movies[],int limite)
 {
@@ -153,7 +153,8 @@ void AbreArchivo(EMovie movie[])
             printf("\El archivo no pudo ser abierto");
         }
         //aca deberia crearlo
-        printf("\nSe creo el archivo");
+        printf("\nSe creo el archivo\n");
+        fclose(pArch);
     }
 }
 void MostrarUnaPeli(EMovie movie)
@@ -183,14 +184,12 @@ void ListarPeliculas(EMovie lista_pelis[],int limite)
     }
 }
 
-void BajaPelicula(EMovie* movies)
+void BajaPeliculas(EMovie movies[],int tam)
 {
 	int id, flag=0,i;
 	int ent=0;
 	char opcion;
-	int tam=20;
-	EMovie lista[20];
-	ListarPeliculas(lista,tam);
+	ListarPeliculas(movies,tam);
 	system("pause");
 	ent=PedirEntero("\nIngrese el id de la pelicula a dar de baja:");
 
@@ -202,13 +201,13 @@ void BajaPelicula(EMovie* movies)
 			MostrarUnaPeli(movies[i]);
 			printf("\nSeguro desea dar de baja?");
 			opcion=getche();
-		//	break;
+
 			if(opcion=='s')
 			{
 				movies[i].id=0;
 				movies[i].estado=-1;
 				printf("\n­­Registro eliminado!!");
-                borrarPelicula(movies[i]);
+                GuardarPelicula(movies,tam);
 			}
 			else
 			{
@@ -223,4 +222,19 @@ void BajaPelicula(EMovie* movies)
 		printf("Pelicula inexistente");
 		getch();
 	}
+}
+int GuardarPelicula(EMovie movie[],int cantidad)
+{
+    FILE *pArch;
+
+
+ //   if((pArch=fopen("pelis.dat","rb"))==NULL)
+    {
+        if((pArch=fopen("pelis.dat","wb"))==NULL)
+        {
+            printf("\El archivo no pudo ser abierto");
+        }
+        fwrite(&movie,sizeof(EMovie),cantidad,pArch);
+        fclose(pArch);
+    }
 }

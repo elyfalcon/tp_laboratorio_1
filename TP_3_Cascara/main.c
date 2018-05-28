@@ -20,8 +20,8 @@ int main()
     int opcion=0;
     EMovie movie;
     EMovie lista_movies[tam];
-  //  AbreArchivo(lista_movies);
     Inicializa_Peliculas(lista_movies,tam);
+    AbreArchivo(lista_movies);
 
     while(seguir=='s')
     {
@@ -37,13 +37,12 @@ int main()
         {
             case 1:
                 system("cls");
-             //   AbreArchivo(lista_movies);
                 AltaUnaxxxx(lista_movies,tam);
-                //AgregarPeliculas(lista_movies,tam);
+
                 break;
             case 2:
                 system("cls");
-                BajaPelicula(lista_movies);
+                BajaPeliculas(lista_movies,tam);
                 break;
             case 3:
                break;

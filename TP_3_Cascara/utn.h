@@ -61,7 +61,7 @@ int obtenerEspacioLibre(EMovie lista_movies[],int);
  * \return
  *
  */
-void BajaPelicula(EMovie* movies);
+void BajaPeliculas(EMovie movies[],int);
 
 
 /** \brief Busca una pelicula por id
@@ -74,9 +74,15 @@ void BajaPelicula(EMovie* movies);
  */
 int buscarPorId(EMovie lista_peliculas[], int,int);
 
-
-
+/** \brief Abre el archivo para trabajar
+ *
+ * \param la estructura Emovie
+ * \return
+ *
+ */
 void AbreArchivo(EMovie movie[]);
+
+int GuardarPelicula(EMovie movie[],int);
 
 void MostrarUnaPeli(EMovie movie);
 void ListarPeliculas(EMovie lista_pelis[],int);

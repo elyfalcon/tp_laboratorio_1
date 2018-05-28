@@ -16,7 +16,7 @@ int agregarPelicula(EMovie movie)
       return i;
 }
 
-int AgregarPeliculas(EMovie lista[],int limite,int cantidad)
+int AgregarPeliculas(EMovie lista[],int limite)
 {
     FILE *pArch;
     int i;
@@ -30,10 +30,10 @@ int AgregarPeliculas(EMovie lista[],int limite,int cantidad)
             printf("\El archivo no pudo ser abierto");
             retorno=-1;
         }
-        //aca deberia crearlo
+
         printf("\nSe creo el archivo");
         retorno=1;
-            fwrite(&lista,sizeof(EMovie),cantidad,pArch);
+            fwrite(&lista,sizeof(EMovie),limite,pArch);
             fclose(pArch);
 
     }

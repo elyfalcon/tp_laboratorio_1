@@ -35,7 +35,7 @@ int borrarPelicula(EMovie movie);
 void generarPagina(EMovie lista[], char nombre[]);
 
 
-int AgregarPeliculas(EMovie lista[],int,int);
+int AgregarPeliculas(EMovie lista[],int);
 
 
 #endif // FUNCIONES_H_INCLUDED
