@@ -22,3 +22,65 @@
 	<conio.h>
 	"funciones.h"
 
+1527515212 source:c:\test\elifalcon\tp_3_cascara\funciones.c
+	<stdio.h>
+	<stdlib.h>
+	"funciones.h"
+	"utn.h"
+
+1527514472 c:\test\elifalcon\tp_3_cascara\funciones.h
+
+1527511520 c:\test\elifalcon\tp_3_cascara\utn.h
+
+1527511631 source:c:\test\elifalcon\tp_3_cascara\main.c
+	<stdio.h>
+	<stdlib.h>
+	"funciones.h"
+	"utn.h"
+
+1527514807 source:c:\test\elifalcon\tp_3_cascara\utn.c
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+	<conio.h>
+	"funciones.h"
+
+1527511632 source:c:\eli\backup_tps\tp_3_cascara\main.c
+	<stdio.h>
+	<stdlib.h>
+	"funciones.h"
+	"utn.h"
+
+1527514474 c:\eli\backup_tps\tp_3_cascara\funciones.h
+
+1527511522 c:\eli\backup_tps\tp_3_cascara\utn.h
+
+1527514808 source:c:\eli\backup_tps\tp_3_cascara\utn.c
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+	<conio.h>
+	"funciones.h"
+
+1527515742 source:c:\eli\backup_tps\tp_3_cascara\funciones.c
+	<stdio.h>
+	<stdlib.h>
+	"funciones.h"
+	"utn.h"
+
+1527515742 source:c:\eli\utn\tp_laboratorioi\tp_laboratorio_1\tp_3_cascara\funciones.c
+	<stdio.h>
+	<stdlib.h>
+	"funciones.h"
+	"utn.h"
+
+1527514474 c:\eli\utn\tp_laboratorioi\tp_laboratorio_1\tp_3_cascara\funciones.h
+
+1527565087 c:\eli\utn\tp_laboratorioi\tp_laboratorio_1\tp_3_cascara\utn.h
+
+1527511632 source:c:\eli\utn\tp_laboratorioi\tp_laboratorio_1\tp_3_cascara\main.c
+	<stdio.h>
+	<stdlib.h>
+	"funciones.h"
+	"utn.h"
+

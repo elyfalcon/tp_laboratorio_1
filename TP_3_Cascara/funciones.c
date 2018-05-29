@@ -16,7 +16,7 @@ int agregarPelicula(EMovie movie)
       return i;
 }
 
-int AgregarPeliculas(EMovie lista[],int limite,int cantidad)
+int AgregarPeliculas(EMovie lista[],int limite)
 {
     FILE *pArch;
     int i;
@@ -30,10 +30,10 @@ int AgregarPeliculas(EMovie lista[],int limite,int cantidad)
             printf("\El archivo no pudo ser abierto");
             retorno=-1;
         }
-        //aca deberia crearlo
+
         printf("\nSe creo el archivo");
         retorno=1;
-            fwrite(&lista,sizeof(EMovie),cantidad,pArch);
+            fwrite(&lista,sizeof(EMovie),limite,pArch);
             fclose(pArch);
 
     }
@@ -73,7 +73,32 @@ int borrarPelicula(EMovie movie)
     return retorno;
 }
 
+/*void generarPagina(EMovie lista[], char nombre[])
+{
+    File*
+    char var[50];
+    char buffer[1080]={};
+
+    strcat(buffer,var);
+
+    strcat(buffer)
+<article class="col-md-4 article-intro">
+                <a href="#">
+                    <img class="img-responsive img-rounded" src="http://ia.media-imdb.com/images/M/MV5BMjA5NTYzMDMyM15BMl5BanBnXkFtZTgwNjU3NDU2MTE@._V1_UX182_CR0,0,182,268_AL_.jpg" alt="">
+                </a>
+                <h3>
+                    <a href="#">Back to the future</a>
+                </h3>
+				<ul>
+					<li>Género:Aventura</li>
+					<li>Puntaje:86</li>
+					<li>Duración:116</li>
+				</ul>
+                <p>A young man is accidentally sent thirty years into the past in a time-traveling DeLorean invented by his friend, Dr. Emmett Brown, and must make sure his high-school-age parents unite in order to save his own existence.</p>
+            </article>
 
 
+}
 
+*/
 

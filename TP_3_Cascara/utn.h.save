@@ -33,7 +33,7 @@ char Responder(char mensaje[]);
 
 
 
-void AltaUnaxxxx(EMovie movie[],int);
+void AltaUnaxxxx(EMovie lista[],int);
 
 /** \brief Inicializa colocando en 0 el id de la estructura Emovie
  *
@@ -58,12 +58,10 @@ int obtenerEspacioLibre(EMovie lista_movies[],int);
 /** \brief Da de baja una pelicula solicitando el titulo que se quiere borrar
  *
  * \param array de tipo movie
- * \param array de tipo char para el titulo
- *\param entero que es el tamanio del array tipo movie
  * \return
  *
  */
-void BajaPelicula(EMovie *movie,char [20],int);
+void BajaPeliculas(EMovie movies[],int);
 
 
 /** \brief Busca una pelicula por id
@@ -76,12 +74,19 @@ void BajaPelicula(EMovie *movie,char [20],int);
  */
 int buscarPorId(EMovie lista_peliculas[], int,int);
 
-
-
+/** \brief Abre el archivo para trabajar
+ *
+ * \param la estructura Emovie
+ * \return
+ *
+ */
 void AbreArchivo(EMovie movie[]);
+
+int GuardarPelicula(EMovie movie[],int);
 
 void MostrarUnaPeli(EMovie movie);
 void ListarPeliculas(EMovie lista_pelis[],int);
+void MostrarGenero(EMovie genero);
 
 
 //int BuscarPorTitulo(EMovie movie[);
