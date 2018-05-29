@@ -64,14 +64,14 @@
 	<ctype.h>
 	"funciones.h"
 
-1525977832 source:c:\eli\tp_laboratorio_1\tp_laboratorio_1\tp2\main.c
+1527620057 source:c:\eli\tp_laboratorio_1\tp_laboratorio_1\tp2\main.c
 	<stdio.h>
 	<stdlib.h>
 	"funciones.h"
 
-1525998824 c:\eli\tp_laboratorio_1\tp_laboratorio_1\tp2\funciones.h
+1527620321 c:\eli\tp_laboratorio_1\tp_laboratorio_1\tp2\funciones.h
 
-1526062888 source:c:\eli\tp_laboratorio_1\tp_laboratorio_1\tp2\funciones.c
+1527620193 source:c:\eli\tp_laboratorio_1\tp_laboratorio_1\tp2\funciones.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>

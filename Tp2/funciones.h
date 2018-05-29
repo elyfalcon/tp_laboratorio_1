@@ -114,4 +114,13 @@ void GraficoEdades(EPersona lista[],int cantidad);
  */
 int EsDniValido(int dato);
 
+/** \brief Pide una respuesta por (S/N) por si o no
+ *
+ * \param  La pregunta a responder por el usuario
+ * \return  un char S o N
+ *
+ */
+char Responder(char mensaje[]);
+
+
 #endif // FUNCIONES_H_INCLUDED

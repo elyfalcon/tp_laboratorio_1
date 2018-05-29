@@ -8,7 +8,7 @@ int main()
 {
     char seguir='s';
     int opcion=0;
-    int dni,i;
+
     //Se crea el array de personas y se lo inicializa inicializa
     EPersona lista[TAMANIO];
     Inicializa_Persona(lista,TAMANIO);
@@ -29,15 +29,19 @@ int main()
         switch(opcion)
         {
             case 1:
+                system("cls");
                 AltaPersonas(lista,TAMANIO);
                 break;
             case 2:
+                system("cls");
                 BorrarUnaPersona(lista);
                 break;
             case 3:
+                system("cls");
                 ListarPersonas(lista,TAMANIO);
                 break;
             case 4:
+                system("cls");
                 GraficoEdades(lista,TAMANIO);
                 break;
             case 5:
