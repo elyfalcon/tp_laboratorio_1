@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include<ctype.h>
 #include<conio.h>
+#include <string.h>
 #include "funciones.h"
 
 
@@ -23,6 +24,19 @@ int PedirEntero(char mensaje[])
     fflush(stdin);
     }while(scanf("%d",&auxiliar)==0);
     return auxiliar;
+}
+char ValidaDuracion(int minutos)
+{
+    int h,m;
+
+        if(minutos>0)
+        {
+            h=(minutos/60);
+            m=minutos - h*60;
+        }
+
+    printf("H:%dM:%d",h,m);
+    return m;
 }
 
 char Responder(char mensaje[])
@@ -66,9 +80,10 @@ if(cantidad>0 && lista_movies !=NULL)
 
 void AltaUnaxxxx(EMovie movie[],int cantidad)
 {
-   int indice,num;
+   int indice,num,puntaje;
    int flag=-1;
    char resp='S';
+
 
         while(resp=='S')
         {
@@ -119,11 +134,18 @@ void AltaUnaxxxx(EMovie movie[],int cantidad)
     }
      }while(num==-1);
           //  gets(movie[indice].genero);
-            printf("Ingrese la duracion: "); //limitar el tiempo y  el formato
+            printf("Ingrese la duracion en minutos: ");//limitar el tiempo y  el formato
             scanf("%d",&movie[indice].duracion);
-            printf("Ingrese el puntaje: (1 a 10"); //validar de 1 a 10
-            fflush(stdin);
-            scanf("%d",&movie[indice].puntaje);
+            ValidaDuracion(movie[indice].duracion);
+            do
+            {
+             puntaje=PedirEntero("Ingrese el puntaje: (1 a 10)\n");
+            //printf("Ingrese el puntaje: 1 a 10"); //validar de 1 a 10
+             fflush(stdin);
+          //  scanf("%d",&movie[indice].puntaje);
+            movie[indice].puntaje=puntaje;
+            }while(puntaje>10 || puntaje<0);
+
             printf("Ingrese la imagen:");
             gets(movie[indice].linkImagen);
             movie[indice].estado=1;
@@ -272,4 +294,32 @@ int GuardarPelicula(EMovie movie[],int cantidad)
         fwrite(&movie,sizeof(EMovie),cantidad,pArch);
         fclose(pArch);
     }
+}
+void CrearListado(EMovie *peli,int cant)
+{
+     int i;
+     FILE *f;
+     f=fopen("Lista de Peliculas.txt", "w");
+
+     if(f == NULL)
+     {
+          printf("No se pudo abrir el archivo\n");
+     }
+     else
+     {
+         fprintf(f,"Listado de Peliculas\n\n\n");
+         fprintf(f,"Titulo      Descripcion     Genero     Duracion     Puntaje \n");
+
+         for(i=0; i<cant; i++)
+         {
+                  if(peli[i].id != 0)
+                  {
+                  fprintf(f,"%s\t\%s %s\t\%d\t%d\n", peli[i].titulo, peli[i].descripcion, peli[i].nombre, peli[i].duracion,peli[i].puntaje);
+                  }
+         }
+      }
+
+      fclose(f);
+      printf("Listado creado con exito\n");
+      system("pause");
 }

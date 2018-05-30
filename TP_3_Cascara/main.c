@@ -18,7 +18,7 @@ int main()
 {
     char seguir='s';
     int opcion=0;
-    EMovie movie;
+  //  EMovie movie;
     EMovie lista_movies[tam];
     Inicializa_Peliculas(lista_movies,tam);
     AbreArchivo(lista_movies);
@@ -48,7 +48,8 @@ int main()
                break;
             case 4:
                 system("cls");
-                ListarPeliculas(lista_movies,tam);
+                CrearListado(lista_movies,tam);
+               // ListarPeliculas(lista_movies,tam);
                 break;
             case 5:
                 seguir = 'n';

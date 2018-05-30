@@ -86,7 +86,20 @@ int GuardarPelicula(EMovie movie[],int);
 
 void MostrarUnaPeli(EMovie movie);
 void ListarPeliculas(EMovie lista_pelis[],int);
-void MostrarGenero(EMovie genero);
+
+
+/** \brief Valida el formato del campo duracion de la pelicula
+ *
+ * \param entero para la hora (entre
+ * \param entero para los minutos
+ * \return un char de la forma HH:MM
+ *
+ */
+
+char ValidaDuracion(int);
+
+
+void CrearListado(EMovie *peli,int cant);
 
 
 //int BuscarPorTitulo(EMovie movie[);

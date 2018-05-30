@@ -88,6 +88,25 @@ void MostrarUnaPeli(EMovie movie);
 void ListarPeliculas(EMovie lista_pelis[],int);
 
 
+/** \brief Valida el formato del campo duracion de la pelicula
+ *
+ * \param entero para la hora (entre
+ * \param entero para los minutos
+ * \return un char de la forma HH:MM
+ *
+ */
+
+char ValidaDuracion(int);
+
+/** \brief Crea un listado de peliculas en un archivo txt
+ *
+ * \param puntero a la estructura Emovie
+ * \return Genera un listado.txt
+ *
+ */
+
+void CrearListado(EMovie *,int cant);
+
 
 //int BuscarPorTitulo(EMovie movie[);
 
