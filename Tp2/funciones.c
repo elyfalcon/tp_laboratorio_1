@@ -22,11 +22,28 @@ int Inicializa_Persona(EPersona lista[],int limite)
 }
 int EsDniValido(int dato)
 {
+  int retorno=0;
   if(dato>=1000000 && dato<=99999999)
     return 1;
 
-  return 0;
+  return retorno;
 }
+char Responder(char mensaje[])
+{
+    char resp;
+    printf("%s",mensaje);
+    fflush(stdin);
+    scanf("%s",&resp);
+    resp=toupper(resp);
+    while(resp!='S'&& resp!='N')
+    {
+      printf("\nDebe ingresar S(si) N(no)\n");
+      scanf("%s",&resp);
+      resp=toupper(resp);
+    }
+    return resp;
+}
+
 
 int obtenerEspacioLibre(EPersona lista[])
 {
@@ -65,54 +82,38 @@ int PedirEntero(char mensaje[])
 }
 
 
-void AltaUnaPersona(EPersona lista[])
+void AltaPersonas(EPersona lista[],int cantidad)
 {
    int indice;
-   long int dni=0;
-   int SiExiste=0;
+   int flag=-1;
+   char resp='S';
+   unsigned long dni;
 
-        dni=PedirEntero("Ingrese el dni: "); //llama a la funcion Pedir entero para el ingreso
-        SiExiste=buscarPorDni(lista,dni);
 
-    if((SiExiste=-1))
+        while(resp=='S')
         {
-       indice=obtenerEspacioLibre(lista);
-
-            if(indice>0)
+            indice=obtenerEspacioLibre(lista);
+            if(indice!=-1)
             {
+            printf("\n-----------ALTA DE PERSONAS-------\n");
+            lista[indice].estado=1;
+            dni=PedirEntero("\nIngrese el DNI:");
             printf("Ingrese el nombre: ");
             fflush(stdin);
             gets(lista[indice].nombre);
-            printf("\nIngrese la edad: ");
+            printf("Ingrese la edad: ");
             fflush(stdin);
             scanf("%d",&lista[indice].edad);
-            lista[indice].dni=dni;
-            lista[indice].estado=OCUPADO;
-        }
+            flag=1;
+            resp=Responder("\nContinua ingresando otra persona?: (S/N)");
         }
         else
         {
-            printf("\nEl Dni ya esta ingresado: \n");
-            system("pause");
-        }
-}
-void AltaPersonas(EPersona lista[],int cantidad)
-{
-    int limite=0,i;
-    system("cls");
-    printf("Cuantas personas desea ingresar? ");
-    fflush(stdin);
-    scanf("%d",&limite);
+            printf("\n--------No hay mas lugar, no se pudo ingresar:");
 
-    if(limite<=cantidad)
-    {
-        for(i=0;i<limite;i++)
-        {
-        AltaUnaPersona(lista);
         }
-    }
-    system("pause");
-    system("cls");
+
+}
 }
 
 int buscarPorDni(EPersona lista[], int dni)
@@ -140,17 +141,31 @@ void BorrarUnaPersona(EPersona lista[])
 {
     int i;
     int index;
-
+    int cant=20;
+    char resp;
 
     system("cls");
+    ListarPersonas(lista,cant);
+  //  system("pause");
     i=PedirEntero("Ingrese el DNI: ");
     index= buscarPorDni(lista,i);
 
   if(index !=-1)
     {
-       system("pause");
-       lista[index].estado=0;
-       lista[index].dni=0;
+    resp=Responder("\nEsta seguro que desea dar de baja a esta persona?: S/N ");
+
+        if(resp=='S')
+        {
+            system("pause");
+            lista[index].estado=0;
+            lista[index].dni=0;
+            printf("------Registro elimintado!!!-----");
+            system("pause");
+        }
+        else
+        {
+            printf("----Registro no eliminado-----");
+        }
     }
     else
     {
@@ -162,7 +177,8 @@ system("cls");
 }
 void MostrarUnaPersona(EPersona persona)
 {
-    printf("\nNombre: %s  Edad: %d DNI: %d Estado: %d\n",persona.nombre,persona.edad,persona.dni,persona.estado);
+
+    printf("\n%s\t\t%d\t\t%d\t\t%d\n",persona.nombre,persona.edad,persona.dni,persona.estado);
 
 }
 
@@ -172,6 +188,8 @@ void ListarPersonas(EPersona lista[],int cantidad)
     system("cls");
     if(cantidad >0 && lista !=NULL)
     {
+        printf("\nNOMBRE:\t\t\tEDAD:\t\tDNI:\t\t  ESTADO:");
+        printf("\n-----------------------------------------------------------------");
         OrdenarListado(lista,cantidad);
 
         for(i=0;i<cantidad;i++)
@@ -181,12 +199,12 @@ void ListarPersonas(EPersona lista[],int cantidad)
         }
     }
     system("pause");
-    system("cls");
+  //  system("cls");
 }
 void OrdenarListado(EPersona lista[],int cantidad)
 {
 int i,j;
-EPersona aux[cantidad];
+EPersona aux;
 
 for(i=0;i<cantidad-1;i++)
 {
@@ -194,18 +212,9 @@ for(i=0;i<cantidad-1;i++)
     {
         if(stricmp(lista[i].nombre,lista[j].nombre)>0)
         {
-            strcpy(aux[i].nombre,lista[i].nombre);
-            aux[i].edad=lista[i].edad;
-            aux[i].dni=lista[i].dni;
-            aux[i].estado=lista[i].estado;
-            strcpy(lista[i].nombre,lista[j].nombre);
-            lista[i].edad=lista[j].edad;
-            lista[i].dni=lista[j].dni;
-            lista[i].estado=lista[j].estado;
-            strcpy(lista[j].nombre,aux[i].nombre);
-            lista[j].edad=aux[i].edad;
-            lista[j].dni=aux[i].dni;
-            lista[j].estado=aux[i].estado;
+            aux=lista[i];
+            lista[i]=lista[j];
+            lista[j]=aux;
         }
     }
 }
