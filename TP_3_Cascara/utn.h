@@ -80,7 +80,7 @@ int buscarPorId(EMovie lista_peliculas[], int,int);
  * \return
  *
  */
-void AbreArchivo(EMovie movie[]);
+void AbreArchivo(EMovie movie[],char nombre[]);
 
 int GuardarPelicula(EMovie movie[],int);
 

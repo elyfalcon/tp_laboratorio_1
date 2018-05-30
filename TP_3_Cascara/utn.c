@@ -90,7 +90,7 @@ void AltaUnaxxxx(EMovie movie[],int cantidad)
            indice=obtenerEspacioLibre(movie,cantidad);
             if(indice>=0) //hay lugar
             {
-            printf("\n-----------ALTA DE PELICULAS-------\n");
+            printf("\n-----------ALTA DE PELICULAS-------\n\n");
             movie[indice].id=indice+1;
             printf("Ingrese el Titulo de la pelicula: ");
             fflush(stdin);
@@ -100,6 +100,7 @@ void AltaUnaxxxx(EMovie movie[],int cantidad)
             gets(movie[indice].descripcion);
             printf("Ingrese el genero: "); //hacer un case
             fflush(stdin);
+            printf("\n");
             do
             {
             printf("\n1- COMEDIA");
@@ -134,12 +135,12 @@ void AltaUnaxxxx(EMovie movie[],int cantidad)
     }
      }while(num==-1);
           //  gets(movie[indice].genero);
-            printf("Ingrese la duracion en minutos: ");//limitar el tiempo y  el formato
+            printf("Ingrese la duracion en minutos: \n");//limitar el tiempo y  el formato
             scanf("%d",&movie[indice].duracion);
             ValidaDuracion(movie[indice].duracion);
             do
             {
-             puntaje=PedirEntero("Ingrese el puntaje: (1 a 10)\n");
+             puntaje=PedirEntero("\nIngrese el puntaje: (1 a 10)\n");
             //printf("Ingrese el puntaje: 1 a 10"); //validar de 1 a 10
              fflush(stdin);
           //  scanf("%d",&movie[indice].puntaje);
@@ -199,13 +200,13 @@ int buscarPorId(EMovie lista_peliculas[], int id,int cantidad)
   return flag;
 }
 
-void AbreArchivo(EMovie movie[])
+void AbreArchivo(EMovie movie[],char nombre[])
 {
     FILE *pArch;
 
-    if((pArch=fopen("pelis.dat","rb"))==NULL)
+    if((pArch=fopen(nombre,"rb"))==NULL)
     {
-        if((pArch=fopen("pelis.dat","wb"))==NULL)
+        if((pArch=fopen(nombre,"wb"))==NULL)
         {
             printf("\El archivo no pudo ser abierto");
         }
@@ -224,7 +225,7 @@ void MostrarUnaPeli(EMovie movie)
 }
 void ListarPeliculas(EMovie lista_pelis[],int limite)
 {
-   // int retorno = -1;
+
     int i;
    // system("cls");
 

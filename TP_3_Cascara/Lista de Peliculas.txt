@@ -3,4 +3,4 @@ Listado de Peliculas
 
 -----------------------------------------------------------------
 Titulo             Descripcion       Genero       Duracion       Puntaje 
-Toc Toc	    Un grupo de personas con tocs severos COMEDIA	8	8
+TOC TOC	    Un grupo laa COMEDIA	120	8

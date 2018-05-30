@@ -7,7 +7,7 @@ typedef struct{
     int duracion;
     char descripcion[50];
     int puntaje;
-    char linkImagen[50];
+    char linkImagen[100];
     int estado;
     int id;
 }EMovie;

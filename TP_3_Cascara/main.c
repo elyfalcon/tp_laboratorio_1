@@ -21,7 +21,7 @@ int main()
   //  EMovie movie;
     EMovie lista_movies[tam];
     Inicializa_Peliculas(lista_movies,tam);
-    AbreArchivo(lista_movies);
+    AbreArchivo(lista_movies,"pelis.dat");
 
     while(seguir=='s')
     {
@@ -45,6 +45,7 @@ int main()
                 BajaPeliculas(lista_movies,tam);
                 break;
             case 3:
+                generarPagina(lista_movies,"Pelis.html");
                break;
             case 4:
                 system("cls");
