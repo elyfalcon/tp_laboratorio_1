@@ -208,7 +208,8 @@ void AbreArchivo(EMovie movie[],char nombre[])
     {
         if((pArch=fopen(nombre,"wb"))==NULL)
         {
-            printf("\El archivo no pudo ser abierto");
+            printf("\nEl archivo no pudo ser abierto");
+
         }
         //aca deberia crearlo
         printf("\nSe creo el archivo\n");
@@ -290,7 +291,7 @@ int GuardarPelicula(EMovie movie[],int cantidad)
     {
         if((pArch=fopen("pelis.dat","wb"))==NULL)
         {
-            printf("\El archivo no pudo ser abierto");
+            printf("\nEl archivo no pudo ser abierto");
         }
         fwrite(&movie,sizeof(EMovie),cantidad,pArch);
         fclose(pArch);
@@ -300,7 +301,7 @@ void CrearListado(EMovie *peli,int cant)
 {
      int i;
      FILE *f;
-     f=fopen("Lista de Peliculas.txt", "w");
+     f=fopen("Peliculas.txt", "w");
 
      if(f == NULL)
      {
@@ -316,7 +317,7 @@ void CrearListado(EMovie *peli,int cant)
          {
                   if(peli[i].id != 0)
                   {
-                  fprintf(f,"%s\t\    %s %s\t\%d\t%d\n", peli[i].titulo, peli[i].descripcion, peli[i].genero, peli[i].duracion,peli[i].puntaje);
+                  fprintf(f,"%s\t    %s %s\t\%d\t%d\n", peli[i].titulo, peli[i].descripcion, peli[i].genero, peli[i].duracion,peli[i].puntaje);
                   }
          }
       }

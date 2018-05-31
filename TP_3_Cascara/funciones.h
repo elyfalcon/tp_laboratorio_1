@@ -5,7 +5,7 @@ typedef struct{
     char titulo[20];
     char genero[20];
     int duracion;
-    char descripcion[50];
+    char descripcion[100];
     int puntaje;
     char linkImagen[100];
     int estado;
@@ -35,7 +35,9 @@ int borrarPelicula(EMovie movie);
 void generarPagina(EMovie lista[], char nombre[]);
 
 
-int AgregarPeliculas(EMovie lista[],int); //Ver para borrar porque no la uso
+int AgregarPeliculas(EMovie lista[],int); //Ver para borrar porque no la
+
+void modificarPelis(EMovie* movie, int);
 
 
 #endif // FUNCIONES_H_INCLUDED
