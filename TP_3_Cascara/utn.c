@@ -35,7 +35,7 @@ char ValidaDuracion(int minutos)
             m=minutos - h*60;
         }
 
-    printf("H:%dM:%d",h,m);
+    printf("H:%d M:%d",h,m);
     return m;
 }
 
@@ -140,7 +140,7 @@ void AltaUnaxxxx(EMovie movie[],int cantidad)
             ValidaDuracion(movie[indice].duracion);
             do
             {
-             puntaje=PedirEntero("\nIngrese el puntaje: (1 a 10)\n");
+             puntaje=PedirEntero("\nIngrese el puntaje: (1 a 10) ");
             //printf("Ingrese el puntaje: 1 a 10"); //validar de 1 a 10
              fflush(stdin);
           //  scanf("%d",&movie[indice].puntaje);
@@ -208,7 +208,8 @@ void AbreArchivo(EMovie movie[],char nombre[])
     {
         if((pArch=fopen(nombre,"wb"))==NULL)
         {
-            printf("\El archivo no pudo ser abierto");
+            printf("\nEl archivo no pudo ser abierto");
+
         }
         //aca deberia crearlo
         printf("\nSe creo el archivo\n");
@@ -244,7 +245,7 @@ void ListarPeliculas(EMovie lista_pelis[],int limite)
 
 void BajaPeliculas(EMovie movies[],int tam)
 {
-	int id, flag=0,i;
+	int flag=0,i;
 	int ent=0;
 	char opcion;
 	ListarPeliculas(movies,tam);
@@ -284,23 +285,26 @@ void BajaPeliculas(EMovie movies[],int tam)
 int GuardarPelicula(EMovie movie[],int cantidad)
 {
     FILE *pArch;
+    int retorno=0;
 
 
  //   if((pArch=fopen("pelis.dat","rb"))==NULL)
     {
         if((pArch=fopen("pelis.dat","wb"))==NULL)
         {
-            printf("\El archivo no pudo ser abierto");
+            printf("\nEl archivo no pudo ser abierto");
         }
         fwrite(&movie,sizeof(EMovie),cantidad,pArch);
+        retorno=1;
         fclose(pArch);
     }
+    return retorno;
 }
 void CrearListado(EMovie *peli,int cant)
 {
      int i;
      FILE *f;
-     f=fopen("Lista de Peliculas.txt", "w");
+     f=fopen("Peliculas.txt", "w");
 
      if(f == NULL)
      {
@@ -311,12 +315,13 @@ void CrearListado(EMovie *peli,int cant)
          fprintf(f,"Listado de Peliculas\n\n\n");
          fprintf(f,"-----------------------------------------------------------------\n");
          fprintf(f,"Titulo             Descripcion       Genero       Duracion       Puntaje \n");
+         fprintf(f,"-----------------------------------------------------------------\n");
 
          for(i=0; i<cant; i++)
          {
                   if(peli[i].id != 0)
                   {
-                  fprintf(f,"%s\t\    %s %s\t\%d\t%d\n", peli[i].titulo, peli[i].descripcion, peli[i].genero, peli[i].duracion,peli[i].puntaje);
+                  fprintf(f,"%s\t    %s %s\t\%d\t%d\n", peli[i].titulo, peli[i].descripcion, peli[i].genero, peli[i].duracion,peli[i].puntaje);
                   }
          }
       }

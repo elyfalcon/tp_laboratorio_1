@@ -68,17 +68,18 @@
 	"funciones.h"
 	"utn.h"
 
-1527515742 source:c:\eli\utn\tp_laboratorioi\tp_laboratorio_1\tp_3_cascara\funciones.c
+1527725470 source:c:\eli\utn\tp_laboratorioi\tp_laboratorio_1\tp_3_cascara\funciones.c
 	<stdio.h>
 	<stdlib.h>
+	<string.h>
 	"funciones.h"
 	"utn.h"
 
-1527514474 c:\eli\utn\tp_laboratorioi\tp_laboratorio_1\tp_3_cascara\funciones.h
+1527725378 c:\eli\utn\tp_laboratorioi\tp_laboratorio_1\tp_3_cascara\funciones.h
 
-1527565087 c:\eli\utn\tp_laboratorioi\tp_laboratorio_1\tp_3_cascara\utn.h
+1527709432 c:\eli\utn\tp_laboratorioi\tp_laboratorio_1\tp_3_cascara\utn.h
 
-1527511632 source:c:\eli\utn\tp_laboratorioi\tp_laboratorio_1\tp_3_cascara\main.c
+1527725576 source:c:\eli\utn\tp_laboratorioi\tp_laboratorio_1\tp_3_cascara\main.c
 	<stdio.h>
 	<stdlib.h>
 	"funciones.h"
@@ -109,17 +110,17 @@
 	<string.h>
 	"funciones.h"
 
-1527683510 source:c:\eli\tp_laboratorio_1\tp_laboratorio_1\tp_3_cascara\main.c
+1527787301 source:c:\eli\tp_laboratorio_1\tp_laboratorio_1\tp_3_cascara\main.c
 	<stdio.h>
 	<stdlib.h>
 	"funciones.h"
 	"utn.h"
 
-1527685658 c:\eli\tp_laboratorio_1\tp_laboratorio_1\tp_3_cascara\funciones.h
+1527726972 c:\eli\tp_laboratorio_1\tp_laboratorio_1\tp_3_cascara\funciones.h
 
-1527683456 c:\eli\tp_laboratorio_1\tp_laboratorio_1\tp_3_cascara\utn.h
+1527726972 c:\eli\tp_laboratorio_1\tp_laboratorio_1\tp_3_cascara\utn.h
 
-1527685658 source:c:\eli\tp_laboratorio_1\tp_laboratorio_1\tp_3_cascara\utn.c
+1527762849 source:c:\eli\tp_laboratorio_1\tp_laboratorio_1\tp_3_cascara\utn.c
 	<stdio.h>
 	<stdlib.h>
 	<ctype.h>
@@ -127,10 +128,18 @@
 	<string.h>
 	"funciones.h"
 
-1527685136 source:c:\eli\tp_laboratorio_1\tp_laboratorio_1\tp_3_cascara\funciones.c
+1527786568 source:c:\eli\tp_laboratorio_1\tp_laboratorio_1\tp_3_cascara\funciones.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
 	"funciones.h"
 	"utn.h"
+
+1527715203 source:c:\eli\utn\tp_laboratorioi\tp_laboratorio_1\tp_3_cascara\utn.c
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+	<conio.h>
+	<string.h>
+	"funciones.h"
 

@@ -27,9 +27,10 @@ int main()
     {
         printf("1- Agregar pelicula\n");
         printf("2- Borrar pelicula\n");
-        printf("3- Generar pagina web\n");
-        printf("4- Generar listado\n");
-        printf("5- Salir\n");
+        printf("3- Modificar pelicula\n");
+        printf("4- Generar pagina web\n");
+        printf("5- Generar listado\n");
+        printf("6- Salir\n");
 
         scanf("%d",&opcion);
 
@@ -38,21 +39,24 @@ int main()
             case 1:
                 system("cls");
                 AltaUnaxxxx(lista_movies,tam);
-
                 break;
             case 2:
                 system("cls");
                 BajaPeliculas(lista_movies,tam);
                 break;
             case 3:
+                system("cls");
+                modificarPelis(lista_movies,tam);
+                break;
+            case 4:
                 generarPagina(lista_movies,"Pelis.html");
                break;
-            case 4:
+            case 5:
                 system("cls");
                 CrearListado(lista_movies,tam);
                // ListarPeliculas(lista_movies,tam);
                 break;
-            case 5:
+            case 6:
                 seguir = 'n';
                 break;
         }
