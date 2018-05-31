@@ -107,6 +107,8 @@ char ValidaDuracion(int);
 
 void CrearListado(EMovie *,int cant);
 
+int CargaDesdeArchivo(EMovie *);
+
 
 //int BuscarPorTitulo(EMovie movie[);
 

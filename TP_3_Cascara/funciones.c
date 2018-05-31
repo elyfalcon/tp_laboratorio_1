@@ -3,6 +3,7 @@
 #include <string.h>
 #include "funciones.h"
 #include "utn.h"
+#define TAM 10
 
 
 int agregarPelicula(EMovie movie)
@@ -83,20 +84,16 @@ void generarPagina(EMovie lista[], char nombre[])
     char puntaje[10];
     char duracion[10];
 
-          //  AbreArchivo(lista,nombre);
-  //  for(i=0;i<20;i++)  //esto se repite
-        //    ListarPeliculas(lista,2);
-       //     i=PedirEntero("Ingrese el id de la pelicula: \n");
-
-       //  <div class='row'>
+//         <div class='row'>
 		//	<!-- Repetir esto para cada pelicula -->
+		cargarDesdeArchivo(lista);
+
 		 strcat(buffer,"<!DOCTYPE html>"
             "<!-- Template by Quackit.com -->"
             "<html lang='es'>"
             "<head>"
                 "<meta http-equiv='Content-Type' content='text/html; charset=ISO-8859-1'>"
-
-                //"<meta http-equiv='X-UA-Compatible' content='IE=edge'>"
+                "<meta http-equiv='X-UA-Compatible' content='IE=edge'>"
                 "<meta name='viewport' content='width=device-width, initial-scale=1'>"
                 "<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->"
                 "<title>Lista peliculas</title>"
@@ -115,46 +112,38 @@ void generarPagina(EMovie lista[], char nombre[])
                 "<div class='container'><div class='row' style='padding-bottom:40px;'><div class='col-md-3' style='background-color:#000000;'></div><div col-md-4' style='background-color:#000000;'><img class='img-responsive center' src='img/peliculas.jpg'></div><div class='col-md-5' style='background-color:#000000;'></div></div>"
                     "<div class='row'>");
 
-            for(j=0;j<2;j++)
+            for(j=0;j<TAM;j++)
             {
+                if(lista[j].id>0)
+                {
                 itoa(lista[j].duracion,duracion,10);
                 itoa(lista[j].puntaje,puntaje,10);
                 strcat(buffer,"<article class='col-md-4 article-intro'>"
                 "<a href='#'>"
-                    "<img class='img-responsive img-rounded' src='" );//http://ia.media-imdb.com/images/M/MV5BMjA5NTYzMDMyM15BMl5BanBnXkFtZTgwNjU3NDU2MTE@._V1_UX182_CR0,0,182,268_AL_.jpg' alt=''>);
-<<<<<<< HEAD
+                    "<img class='img-responsive img-rounded' src='" );
                     strcat(buffer,lista[j].linkImagen);
-=======
-                    strcat(buffer,lista[i].linkImagen);
->>>>>>> 17dab460daf640aa8151dc710d00f7feed74b67f
                     strcat(buffer,"</a> <h3>"
-                    "<a href='#'>");//lista[i]/*Back to the future*/</a>
+                    "<a href='#'></div><div class='col-md-6 article-intro'><h3>");
                     strcat(buffer,lista[j].titulo);
-                    strcat(buffer,"</h3><ul>");
-                    strcat(buffer,"<li>Género: ");
+                    strcat(buffer,"</a>"
+                    "</h3><br/>""<ul>""<li>Género:");
+
                     strcat(buffer,lista[j].genero);
-					strcat(buffer,"<li></li>");
-					strcat(buffer,"</li> <li>: ");
-<<<<<<< HEAD
+					//strcat(buffer,"<li></li>");
+					//strcat(buffer,"</li> <li>: ");
 					strcat(buffer,"</li><li>Puntaje:");
-					//sprintf(puntaje, "%d", lista[i].puntaje);
                     strcat(buffer,puntaje);
-                //    strcat(buffer, "</li><li>Duracion:");
-                //    sprintf(duracion, "%d", lista[j].duracion);
+                    strcat(buffer, "</li><li>Duracion:");
                     strcat(buffer,duracion);
-=======
-                    strcat(buffer,lista[i].puntaje);
-                     strcat(buffer,lista[i].duracion);
->>>>>>> 17dab460daf640aa8151dc710d00f7feed74b67f
-                    strcat(buffer,"</li></ul><p>");
+                    strcat(buffer,"</li></ul><p></div><article class='col-md-12 article-intro'>");
                     strcat(buffer,lista[j].descripcion);
                     strcat(buffer,"</p><li>");
                     strcat(buffer,"</ul>");
                     strcat(buffer,"</p></article></div><!-- /.row -->");
 			//<!-- Repetir esto para cada pelicula -
-   // }
-}
-<<<<<<< HEAD
+            }//fin if
+                }//fin for
+
          strcat(buffer,"</div>"
                 "<!-- /.row -->"
                 "</div>"
@@ -170,23 +159,17 @@ void generarPagina(EMovie lista[], char nombre[])
             "</body>"
             "</html>");
 
-
-=======
->>>>>>> 17dab460daf640aa8151dc710d00f7feed74b67f
         pArchHtml=fopen(nombre,"w");
         fprintf(pArchHtml,buffer);
         fclose(pArchHtml);
-       // GuardarPelicula(lista,cantidad);
 
-}void modificarPelis(EMovie* movie, int limite)
+}
+void modificarPelis(EMovie* movie, int limite)
 {
     int i;
     int id,indice,num,punt, flag=0;
     char resp='S';
-<<<<<<< HEAD
-=======
 
->>>>>>> 17dab460daf640aa8151dc710d00f7feed74b67f
 	int opcion;
 	system("cls");
 	ListarPeliculas(movie,limite);
@@ -251,11 +234,11 @@ void generarPagina(EMovie lista[], char nombre[])
                                 }while(num==-1);
                                 case 3:
                                     printf("\nIngrese duracion en minutos");
-<<<<<<< HEAD
+
                                     scanf("%d",&movie[id].duracion);
-=======
+
                                     scanf("%d",movie[id].duracion);
->>>>>>> 17dab460daf640aa8151dc710d00f7feed74b67f
+
                                     break;
                                 case 4:
                                     printf("\nIngrese la nueva descripcion");
@@ -275,11 +258,11 @@ void generarPagina(EMovie lista[], char nombre[])
                     GuardarPelicula(movie,limite);
                 }//fin if(resp)
                    else
-<<<<<<< HEAD
+
                     printf("\nSe cancelo la modificacion");
-=======
+
                     printf("\Se cancelo la modificacion");
->>>>>>> 17dab460daf640aa8151dc710d00f7feed74b67f
+
 
             }//fin if
         }//fin for

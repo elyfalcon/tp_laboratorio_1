@@ -4,15 +4,7 @@
 #include "utn.h"
 #define tam 20
 
-/*typedef struct{
-    char titulo[20];
-    char genero[20];
-    int duracion;
-    char descripcion[50];
-    int puntaje;
-    char linkImagen[50];
-    int id;
-}EMovie;*/
+
 
 int main()
 {
@@ -45,10 +37,7 @@ int main()
                 BajaPeliculas(lista_movies,tam);
                 break;
             case 3:
-<<<<<<< HEAD
                 system("cls");
-=======
->>>>>>> 17dab460daf640aa8151dc710d00f7feed74b67f
                 modificarPelis(lista_movies,tam);
                 break;
             case 4:

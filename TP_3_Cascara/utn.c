@@ -4,6 +4,7 @@
 #include<conio.h>
 #include <string.h>
 #include "funciones.h"
+#define TAM 10
 
 
 
@@ -329,4 +330,29 @@ void CrearListado(EMovie *peli,int cant)
       fclose(f);
       printf("Listado creado con exito\n");
       system("pause");
+}
+int cargarDesdeArchivo(EMovie *movie)
+{
+	int flag = 0;
+	FILE *pArchivo;
+
+	pArchivo=fopen("pelis.dat", "rb");
+	if(pArchivo==NULL)
+	{
+		pArchivo= fopen("pelis.dat", "wb");
+		if(pArchivo==NULL)
+		{
+			return 1;
+		}
+		flag=1;
+	}
+
+	if(flag ==0)
+	{
+	fread(pArchivo,sizeof(EMovie),TAM,pArchivo);
+    }
+
+	fclose(pArchivo);
+	return 0;
+
 }
