@@ -122,7 +122,11 @@ void generarPagina(EMovie lista[], char nombre[])
                 strcat(buffer,"<article class='col-md-4 article-intro'>"
                 "<a href='#'>"
                     "<img class='img-responsive img-rounded' src='" );//http://ia.media-imdb.com/images/M/MV5BMjA5NTYzMDMyM15BMl5BanBnXkFtZTgwNjU3NDU2MTE@._V1_UX182_CR0,0,182,268_AL_.jpg' alt=''>);
+<<<<<<< HEAD
                     strcat(buffer,lista[j].linkImagen);
+=======
+                    strcat(buffer,lista[i].linkImagen);
+>>>>>>> 17dab460daf640aa8151dc710d00f7feed74b67f
                     strcat(buffer,"</a> <h3>"
                     "<a href='#'>");//lista[i]/*Back to the future*/</a>
                     strcat(buffer,lista[j].titulo);
@@ -131,12 +135,17 @@ void generarPagina(EMovie lista[], char nombre[])
                     strcat(buffer,lista[j].genero);
 					strcat(buffer,"<li></li>");
 					strcat(buffer,"</li> <li>: ");
+<<<<<<< HEAD
 					strcat(buffer,"</li><li>Puntaje:");
 					//sprintf(puntaje, "%d", lista[i].puntaje);
                     strcat(buffer,puntaje);
                 //    strcat(buffer, "</li><li>Duracion:");
                 //    sprintf(duracion, "%d", lista[j].duracion);
                     strcat(buffer,duracion);
+=======
+                    strcat(buffer,lista[i].puntaje);
+                     strcat(buffer,lista[i].duracion);
+>>>>>>> 17dab460daf640aa8151dc710d00f7feed74b67f
                     strcat(buffer,"</li></ul><p>");
                     strcat(buffer,lista[j].descripcion);
                     strcat(buffer,"</p><li>");
@@ -145,6 +154,7 @@ void generarPagina(EMovie lista[], char nombre[])
 			//<!-- Repetir esto para cada pelicula -
    // }
 }
+<<<<<<< HEAD
          strcat(buffer,"</div>"
                 "<!-- /.row -->"
                 "</div>"
@@ -161,6 +171,8 @@ void generarPagina(EMovie lista[], char nombre[])
             "</html>");
 
 
+=======
+>>>>>>> 17dab460daf640aa8151dc710d00f7feed74b67f
         pArchHtml=fopen(nombre,"w");
         fprintf(pArchHtml,buffer);
         fclose(pArchHtml);
@@ -171,6 +183,10 @@ void generarPagina(EMovie lista[], char nombre[])
     int i;
     int id,indice,num,punt, flag=0;
     char resp='S';
+<<<<<<< HEAD
+=======
+
+>>>>>>> 17dab460daf640aa8151dc710d00f7feed74b67f
 	int opcion;
 	system("cls");
 	ListarPeliculas(movie,limite);
@@ -235,7 +251,11 @@ void generarPagina(EMovie lista[], char nombre[])
                                 }while(num==-1);
                                 case 3:
                                     printf("\nIngrese duracion en minutos");
+<<<<<<< HEAD
                                     scanf("%d",&movie[id].duracion);
+=======
+                                    scanf("%d",movie[id].duracion);
+>>>>>>> 17dab460daf640aa8151dc710d00f7feed74b67f
                                     break;
                                 case 4:
                                     printf("\nIngrese la nueva descripcion");
@@ -255,7 +275,11 @@ void generarPagina(EMovie lista[], char nombre[])
                     GuardarPelicula(movie,limite);
                 }//fin if(resp)
                    else
+<<<<<<< HEAD
                     printf("\nSe cancelo la modificacion");
+=======
+                    printf("\Se cancelo la modificacion");
+>>>>>>> 17dab460daf640aa8151dc710d00f7feed74b67f
 
             }//fin if
         }//fin for
