@@ -107,7 +107,17 @@ char ValidaDuracion(int);
 
 void CrearListado(EMovie *,int cant);
 
+
+/** \brief Carga las peliculas desde un archivo
+ *
+ * \param puntero a la estructura
+ * \param
+ * \return un entero que indica si hubo error o si pudo cargar las peliculas
+ *
+ */
 int CargaDesdeArchivo(EMovie *);
+
+void ElegirGenero(EMovie *,int);
 
 
 //int BuscarPorTitulo(EMovie movie[);

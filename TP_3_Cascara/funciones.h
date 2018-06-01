@@ -2,7 +2,7 @@
 #define FUNCIONES_H_INCLUDED
 
 typedef struct{
-    char titulo[20];
+    char titulo[40];
     char genero[20];
     int duracion;
     char descripcion[100];

@@ -3,5 +3,5 @@ Listado de Peliculas
 
 -----------------------------------------------------------------
 Titulo             Descripcion       Genero       Duracion       Puntaje 
-TOC TOC	    Un grupo de pacientes coincide en la consulta de un eminente psic¢logo, todos ellos aquejados de TOC COMEDIA	96	8
-La trenza del peladoDRAMA	    un pobre pelado trolo DRAMA	120	4
+-----------------------------------------------------------------
+TOC TOC	    Un grupo de pacientes coincide en la consulta de un eminente psic¢logo, todos ellos aquejados de TOC DRAMA	96	8

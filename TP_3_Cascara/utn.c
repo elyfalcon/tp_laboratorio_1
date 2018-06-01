@@ -162,6 +162,7 @@ void AltaUnaxxxx(EMovie movie[],int cantidad)
         }//fin while
 
             GuardarPelicula(movie,cantidad);
+            system("cls");
 }
 int Inicializa_Peliculas(EMovie lista_movies[],int limite)
 {
@@ -354,5 +355,45 @@ int cargarDesdeArchivo(EMovie *movie)
 
 	fclose(pArchivo);
 	return 0;
+
+}
+void ElegirGenero(EMovie *movie,int indice)
+{
+     int num;
+     printf("Ingrese el genero: "); //hacer un case
+            fflush(stdin);
+            printf("\n");
+            do
+            {
+            printf("\n1- COMEDIA");
+            printf("\n2- DRAMA");
+            printf("\n3- CIENCIA FICCION");
+            printf("\n4- AVENTURA");
+            printf("\n5- TERROR\n\n");
+            fflush(stdin);
+            scanf("%d",&num);
+
+            switch (num)
+            {
+            case 1:
+                strcpy(movie[indice].genero,"COMEDIA");
+                break;
+            case 2:
+                strcpy(movie[indice].genero,"DRAMA");
+                break;
+            case 3:
+                strcpy(movie[indice].genero,"CIENCIA FICCION");
+                break;
+            case 4:
+                strcpy(movie[indice].genero,"AVENTURA");
+                break;
+            case 5:
+                strcpy(movie[indice].genero,"TERROR");
+                break;
+            default:
+                printf("Ingrese una opcion correcta: \n");
+                break;
+            }// fin switch
+        }while(num==-1);
 
 }

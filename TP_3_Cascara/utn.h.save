@@ -80,7 +80,7 @@ int buscarPorId(EMovie lista_peliculas[], int,int);
  * \return
  *
  */
-void AbreArchivo(EMovie movie[]);
+void AbreArchivo(EMovie movie[],char nombre[]);
 
 int GuardarPelicula(EMovie movie[],int);
 
@@ -98,8 +98,26 @@ void ListarPeliculas(EMovie lista_pelis[],int);
 
 char ValidaDuracion(int);
 
+/** \brief Crea un listado de peliculas en un archivo txt
+ *
+ * \param puntero a la estructura Emovie
+ * \return Genera un listado.txt
+ *
+ */
 
-void CrearListado(EMovie *peli,int cant);
+void CrearListado(EMovie *,int cant);
+
+
+/** \brief Carga las peliculas desde un archivo
+ *
+ * \param puntero a la estructura
+ * \param 
+ * \return un entero que indica si hubo error o si pudo cargar las peliculas
+ *
+ */     
+int CargaDesdeArchivo(EMovie *);
+
+char ElegirGenero(EMovie *,int);
 
 
 //int BuscarPorTitulo(EMovie movie[);

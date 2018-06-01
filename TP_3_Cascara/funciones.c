@@ -80,7 +80,7 @@ void generarPagina(EMovie lista[], char nombre[])
     char var[50];
     char buffer[5000]={};
     int i,j=0;
-    int cantidad=20;
+  //  int cantidad=20;
     char puntaje[10];
     char duracion[10];
 
@@ -118,11 +118,13 @@ void generarPagina(EMovie lista[], char nombre[])
                 {
                 itoa(lista[j].duracion,duracion,10);
                 itoa(lista[j].puntaje,puntaje,10);
-                strcat(buffer,"<article class='col-md-4 article-intro'>"
+
+                    strcat(buffer,"<article class='col-md-4 article-intro'>"
                 "<a href='#'>"
-                    "<img class='img-responsive img-rounded' src='" );
+                    "<img class='img-responsive img-rounded' src='");//http://ia.media-imdb.com/images/M/MV5BMjA5NTYzMDMyM15BMl5BanBnXkFtZTgwNjU3NDU2MTE@._V1_UX182_CR0,0,182,268_AL_.jpg' alt=''>"
+
                     strcat(buffer,lista[j].linkImagen);
-                    strcat(buffer,"</a> <h3>"
+                    strcat(buffer,"'/></a>"
                     "<a href='#'></div><div class='col-md-6 article-intro'><h3>");
                     strcat(buffer,lista[j].titulo);
                     strcat(buffer,"</a>"
@@ -137,10 +139,15 @@ void generarPagina(EMovie lista[], char nombre[])
                     strcat(buffer,duracion);
                     strcat(buffer,"</li></ul><p></div><article class='col-md-12 article-intro'>");
                     strcat(buffer,lista[j].descripcion);
-                    strcat(buffer,"</p><li>");
+                     strcat(buffer,"</p>"
+
+                        "</article></article>"
+
+                        "<!-- Repetir esto para cada pelicula -->");
+                  /*  strcat(buffer,"</p><li>");
                     strcat(buffer,"</ul>");
                     strcat(buffer,"</p></article></div><!-- /.row -->");
-			//<!-- Repetir esto para cada pelicula -
+			//<!-- Repetir esto para cada pelicula -*/
             }//fin if
                 }//fin for
 
@@ -158,7 +165,7 @@ void generarPagina(EMovie lista[], char nombre[])
                 "<script src='js/holder.min.js'></script>"
             "</body>"
             "</html>");
-
+        printf("\Se genero la pagina\n");
         pArchHtml=fopen(nombre,"w");
         fprintf(pArchHtml,buffer);
         fclose(pArchHtml);
@@ -167,27 +174,26 @@ void generarPagina(EMovie lista[], char nombre[])
 void modificarPelis(EMovie* movie, int limite)
 {
     int i;
-    int id,indice,num,punt, flag=0;
+    int id,indice,punt, flag=0;
     char resp='S';
 
 	int opcion;
 	system("cls");
+	cargarDesdeArchivo(movie);
 	ListarPeliculas(movie,limite);
 	id=PedirEntero("\nIngrese el Id de la Pelicula a modificar: ");
-	//indice=buscarPorId(movie,id,limite);
-	//if(indice >=0)
-   // {
+
         for(i=0; i<limite; i++)
         {
             if(movie[i].id==id)
             {
                 MostrarUnaPeli(movie[i]);
-                resp=Responder("\nConfirma modificacion de esta pelicula?: (S/N)");
+                resp=Responder("\nConfirma modificacion de esta pelicula?: (S/N) ");
                 if(resp=='S')
                 {
                      do
                     {
-                        printf("\n\n\n  == OPCIONES DE DATOS A MODIFICAR == \n\n 1- Titulo \n 2- Genero\n 3- Duracion \n 4- Descripcion \n5 -Puntaje\n 6-Salir");
+                        printf("\n\n\n  == OPCIONES DE DATOS A MODIFICAR == \n\n 1- Titulo \n 2- Genero\n 3- Duracion \n 4- Descripcion \n5 -Puntaje\n\n 6-Salir\n");
                         scanf("%d",&opcion);
                         switch (opcion)
                         {
@@ -196,56 +202,18 @@ void modificarPelis(EMovie* movie, int limite)
                             gets(movie[id].titulo);
                             break;
                             case 2:
-                                printf("Ingrese el genero: "); //hacer un case
-                                fflush(stdin);
-                                printf("\n");
-                                do
-                                {
-                                printf("\n1- COMEDIA");
-                                printf("\n2- DRAMA");
-                                printf("\n3- CIENCIA FICCION");
-                                printf("\n4- AVENTURA");
-                                printf("\n5- TERROR\n\n");
-                                fflush(stdin);
-                                scanf("%d",&num);
-                                switch (num)
-                                {
-                                case 1:
-
-                                    strcpy(movie[id].genero,"COMEDIA");
-                                    break;
-                                case 2:
-                                    strcpy(movie[id].genero,"DRAMA");
-                                    break;
-                                    case 3:
-                                    strcpy(movie[id].genero,"CIENCIA FICCION");
-                                    break;
-                                case 4:
-                                    strcpy(movie[id].genero,"AVENTURA");
-                                    break;
-                                case 5:
-                                    strcpy(movie[id].genero,"TERROR");
-                                    break;
-                                default:
-                                    printf("Ingrese una opcion correcta: \n");
-                                    num=-1;
-                                    break;
-                                }//fin switch genero
-                                }while(num==-1);
+                                ElegirGenero(movie,id);
+                                break;
                                 case 3:
                                     printf("\nIngrese duracion en minutos");
-
                                     scanf("%d",&movie[id].duracion);
-
-                                    scanf("%d",movie[id].duracion);
-
                                     break;
                                 case 4:
                                     printf("\nIngrese la nueva descripcion");
                                     gets(movie[id].descripcion);
                                     break;
                                 case 5:
-                                    punt=PedirEntero("Ingrese el puntaje: (1 a 10)");
+                                    punt=PedirEntero("\nIngrese el puntaje: (1 a 10)");
                                     movie[id].puntaje=punt;
                                     break;
                                 case 6:
@@ -254,15 +222,19 @@ void modificarPelis(EMovie* movie, int limite)
 
                             }//fin switch
                     }while(opcion==-1);//fin while
+                    resp=Responder("\nConfirma modificacion?: (S/N) ");
+                    if(resp=='S')
+                    {
                     printf("\nPelicula Modificada");
+                    system("pause");
                     GuardarPelicula(movie,limite);
+                    }
+
                 }//fin if(resp)
                    else
-
-                    printf("\nSe cancelo la modificacion");
-
-                    printf("\Se cancelo la modificacion");
-
+                    {printf("\nSe cancelo la modificacion");
+                    system("pause");
+                    system("cls");}
 
             }//fin if
         }//fin for
