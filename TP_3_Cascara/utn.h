@@ -1,5 +1,6 @@
 #ifndef UTN_H_INCLUDED
 #define UTN_H_INCLUDED
+#define TAM 10
 
 
 
@@ -115,7 +116,7 @@ void CrearListado(EMovie *,int cant);
  * \return un entero que indica si hubo error o si pudo cargar las peliculas
  *
  */
-int CargaDesdeArchivo(EMovie *);
+int CargaDesdeArchivo(EMovie *,int);
 
 void ElegirGenero(EMovie *,int);
 

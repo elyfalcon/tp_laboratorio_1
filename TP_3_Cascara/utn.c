@@ -4,7 +4,7 @@
 #include<conio.h>
 #include <string.h>
 #include "funciones.h"
-#define TAM 10
+
 
 
 
@@ -175,6 +175,7 @@ int Inicializa_Peliculas(EMovie lista_movies[],int limite)
        {
            retorno=0;
            lista_movies[i].id=0;
+           lista_movies[i].estado=0;
         }
    }
     return retorno;
@@ -214,9 +215,14 @@ void AbreArchivo(EMovie movie[],char nombre[])
 
         }
         //aca deberia crearlo
+
+    }//fin if
+    else
+    {
         printf("\nSe creo el archivo\n");
         fclose(pArch);
     }
+
 }
 void MostrarUnaPeli(EMovie movie)
 {
@@ -291,15 +297,18 @@ int GuardarPelicula(EMovie movie[],int cantidad)
 
 
  //   if((pArch=fopen("pelis.dat","rb"))==NULL)
-    {
+ //   {
         if((pArch=fopen("pelis.dat","wb"))==NULL)
         {
             printf("\nEl archivo no pudo ser abierto");
         }
-        fwrite(&movie,sizeof(EMovie),cantidad,pArch);
+        else{
+              fwrite(movie,sizeof(EMovie),cantidad,pArch);
         retorno=1;
         fclose(pArch);
-    }
+        }
+
+   // }
     return retorno;
 }
 void CrearListado(EMovie *peli,int cant)
@@ -332,7 +341,7 @@ void CrearListado(EMovie *peli,int cant)
       printf("Listado creado con exito\n");
       system("pause");
 }
-int cargarDesdeArchivo(EMovie *movie)
+int cargarDesdeArchivo(EMovie *movie,int TAM)
 {
 	int flag = 0;
 	FILE *pArchivo;
@@ -350,7 +359,7 @@ int cargarDesdeArchivo(EMovie *movie)
 
 	if(flag ==0)
 	{
-	fread(pArchivo,sizeof(EMovie),TAM,pArchivo);
+	fread(movie,sizeof(EMovie),TAM,pArchivo);
     }
 
 	fclose(pArchivo);

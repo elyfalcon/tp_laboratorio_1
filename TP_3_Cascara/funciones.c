@@ -109,13 +109,13 @@ void generarPagina(EMovie lista[], char nombre[])
                 "<![endif]-->"
             "</head>"
            " <body>"
-                "<div class='container'><div class='row' style='padding-bottom:40px;'><div class='col-md-3' style='background-color:#000000;'></div><div col-md-4' style='background-color:#000000;'><img class='img-responsive center' src='img/peliculas.jpg'></div><div class='col-md-5' style='background-color:#000000;'></div></div>"
+                "<div class='container'><div class='row' style='padding-bottom:40px;'><div class='col-md-3' style='background-color:#000000;'></div><div col-md-4' style='background-color:#000000;color:#ffffff;'>VIDEO CLUB Ely</div><div class='col-md-5' style='background-color:#000000;'></div></div>"
                     "<div class='row'>");
 
             for(j=0;j<TAM;j++)
             {
-                if(lista[j].id>0)
-                {
+             if(lista[j].id>0)
+                  {
                 itoa(lista[j].duracion,duracion,10);
                 itoa(lista[j].puntaje,puntaje,10);
 
@@ -148,8 +148,10 @@ void generarPagina(EMovie lista[], char nombre[])
                     strcat(buffer,"</ul>");
                     strcat(buffer,"</p></article></div><!-- /.row -->");
 			//<!-- Repetir esto para cada pelicula -*/
-            }//fin if
+
+          }//fin if
                 }//fin for
+
 
          strcat(buffer,"</div>"
                 "<!-- /.row -->"
@@ -165,7 +167,7 @@ void generarPagina(EMovie lista[], char nombre[])
                 "<script src='js/holder.min.js'></script>"
             "</body>"
             "</html>");
-        printf("\Se genero la pagina\n");
+    printf("\nSe genero la pagina\n");
         pArchHtml=fopen(nombre,"w");
         fprintf(pArchHtml,buffer);
         fclose(pArchHtml);
