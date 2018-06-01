@@ -167,7 +167,8 @@ void generarPagina(EMovie lista[], char nombre[])
                 "<script src='js/holder.min.js'></script>"
             "</body>"
             "</html>");
-    printf("\nSe genero la pagina\n");
+        printf("\nSe genero la pagina pelis.html \n");
+        system("pause");
         pArchHtml=fopen(nombre,"w");
         fprintf(pArchHtml,buffer);
         fclose(pArchHtml);
@@ -201,22 +202,22 @@ void modificarPelis(EMovie* movie, int limite)
                         {
                             case 1:
                                 printf("\nIngrese el nuevo Titulo:");
-                                gets(movie[id].titulo);
+                                gets(movie[i].titulo);
                                 break;
                             case 2:
-                                ElegirGenero(movie,id);
+                                ElegirGenero(movie,i);
                                 break;
                             case 3:
                                 printf("\nIngrese duracion en minutos");
-                                scanf("%d",&movie[id].duracion);
+                                scanf("%d",&movie[i].duracion);
                                 break;
                             case 4:
                                 printf("\nIngrese la nueva descripcion");
-                                gets(movie[id].descripcion);
+                                gets(movie[i].descripcion);
                                 break;
                             case 5:
                                 punt=PedirEntero("\nIngrese el puntaje: (1 a 10)");
-                                movie[id].puntaje=punt;
+                                movie[i].puntaje=punt;
                                 break;
                             case 6:
                                 opcion=-1;
@@ -231,14 +232,15 @@ void modificarPelis(EMovie* movie, int limite)
                     system("pause");
                     GuardarPelicula(movie,limite);
                     }
-
-                }//fin if(resp)
-                   else
+                    else
                     {printf("\nSe cancelo la modificacion\n");
                     system("pause");
                     system("cls");}
 
-            }//fin if
+                }//fin if(resp)
+
+
+            }//fin if (movie[i].id
         }//fin for
  //   }//fin if indice
 

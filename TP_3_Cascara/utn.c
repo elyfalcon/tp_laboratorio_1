@@ -263,21 +263,23 @@ void BajaPeliculas(EMovie movies[],int tam)
 	{
 		if(ent==movies[i].id)
 		{
-			printf("Datos a eliminar:\n");
+			printf("--------Datos a eliminar: -----------\n");
 			MostrarUnaPeli(movies[i]);
-			printf("\nSeguro desea dar de baja?");
-			opcion=getche();
-
-			if(opcion=='s')
+			/*printf("\nSeguro desea eliminar esta pelicula?; ");
+			opcion=getche();+*/
+            opcion=Responder("\nSeguro desea eliminar esta pelicula?:");
+			if(opcion=='S')
 			{
 				movies[i].id=0;
 				movies[i].estado=-1;
-				printf("\n­­Registro eliminado!!");
+				printf("\n­­Registro eliminado!!\n");
+				system("pause");
                 GuardarPelicula(movies,tam);
 			}
 			else
 			{
-				printf("\nEl registro no fue eliminado!");
+				printf("\nEl registro no fue eliminado!\n");
+				system("pause");
 			}
 			flag=1;
 			break;
