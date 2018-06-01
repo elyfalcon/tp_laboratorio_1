@@ -116,11 +116,11 @@
 	"funciones.h"
 	"utn.h"
 
-1527726972 c:\eli\tp_laboratorio_1\tp_laboratorio_1\tp_3_cascara\funciones.h
+1527847675 c:\eli\tp_laboratorio_1\tp_laboratorio_1\tp_3_cascara\funciones.h
 
-1527792580 c:\eli\tp_laboratorio_1\tp_laboratorio_1\tp_3_cascara\utn.h
+1527846734 c:\eli\tp_laboratorio_1\tp_laboratorio_1\tp_3_cascara\utn.h
 
-1527792900 source:c:\eli\tp_laboratorio_1\tp_laboratorio_1\tp_3_cascara\utn.c
+1527846734 source:c:\eli\tp_laboratorio_1\tp_laboratorio_1\tp_3_cascara\utn.c
 	<stdio.h>
 	<stdlib.h>
 	<ctype.h>
@@ -128,7 +128,7 @@
 	<string.h>
 	"funciones.h"
 
-1527792797 source:c:\eli\tp_laboratorio_1\tp_laboratorio_1\tp_3_cascara\funciones.c
+1527850278 source:c:\eli\tp_laboratorio_1\tp_laboratorio_1\tp_3_cascara\funciones.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
