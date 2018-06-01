@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include "funciones.h"
 #include "utn.h"
-#define tam 20
+#define TAM 10
 
 
 
@@ -11,12 +11,16 @@ int main()
     char seguir='s';
     int opcion=0;
   //  EMovie movie;
-    EMovie lista_movies[tam];
-    Inicializa_Peliculas(lista_movies,tam);
-    AbreArchivo(lista_movies,"pelis.dat");
+    EMovie lista_movies[TAM];
+    Inicializa_Peliculas(lista_movies,TAM);
+   // AbreArchivo(lista_movies,"pelis.dat");
+   cargarDesdeArchivo(lista_movies,TAM);
+
 
     while(seguir=='s')
     {
+        printf("-------MENU PRINCIPAL --------\n\n");
+        printf("Ingrese una opcion: \n\n");
         printf("1- Agregar pelicula\n");
         printf("2- Borrar pelicula\n");
         printf("3- Modificar pelicula\n");
@@ -25,28 +29,31 @@ int main()
         printf("6- Salir\n");
 
         scanf("%d",&opcion);
-
+        ValidaMenu(opcion,1,6);
         switch(opcion)
         {
             case 1:
+                AltaUnaxxxx(lista_movies,TAM);
                 system("cls");
-                AltaUnaxxxx(lista_movies,tam);
                 break;
             case 2:
+
+                BajaPeliculas(lista_movies,TAM);
                 system("cls");
-                BajaPeliculas(lista_movies,tam);
                 break;
             case 3:
+                modificarPelis(lista_movies,TAM);
                 system("cls");
-                modificarPelis(lista_movies,tam);
                 break;
             case 4:
                 generarPagina(lista_movies,"Pelis.html");
+                system("cls");
                break;
             case 5:
+
+               // CrearListado(lista_movies,TAM);
+                ListarPeliculas(lista_movies,TAM);
                 system("cls");
-                CrearListado(lista_movies,tam);
-               // ListarPeliculas(lista_movies,tam);
                 break;
             case 6:
                 seguir = 'n';

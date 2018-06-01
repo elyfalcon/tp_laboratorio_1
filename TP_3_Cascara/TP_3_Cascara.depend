@@ -45,26 +45,28 @@
 	<conio.h>
 	"funciones.h"
 
-1527511632 source:c:\eli\backup_tps\tp_3_cascara\main.c
+1527872901 source:c:\eli\backup_tps\tp_3_cascara\main.c
 	<stdio.h>
 	<stdlib.h>
 	"funciones.h"
 	"utn.h"
 
-1527514474 c:\eli\backup_tps\tp_3_cascara\funciones.h
+1527876706 c:\eli\backup_tps\tp_3_cascara\funciones.h
 
-1527511522 c:\eli\backup_tps\tp_3_cascara\utn.h
+1527876668 c:\eli\backup_tps\tp_3_cascara\utn.h
 
-1527514808 source:c:\eli\backup_tps\tp_3_cascara\utn.c
+1527875989 source:c:\eli\backup_tps\tp_3_cascara\utn.c
 	<stdio.h>
 	<stdlib.h>
 	<ctype.h>
 	<conio.h>
+	<string.h>
 	"funciones.h"
 
-1527515742 source:c:\eli\backup_tps\tp_3_cascara\funciones.c
+1527872061 source:c:\eli\backup_tps\tp_3_cascara\funciones.c
 	<stdio.h>
 	<stdlib.h>
+	<string.h>
 	"funciones.h"
 	"utn.h"
 
@@ -116,11 +118,11 @@
 	"funciones.h"
 	"utn.h"
 
-1527847675 c:\eli\tp_laboratorio_1\tp_laboratorio_1\tp_3_cascara\funciones.h
+1527726972 c:\eli\tp_laboratorio_1\tp_laboratorio_1\tp_3_cascara\funciones.h
 
-1527846734 c:\eli\tp_laboratorio_1\tp_laboratorio_1\tp_3_cascara\utn.h
+1527792580 c:\eli\tp_laboratorio_1\tp_laboratorio_1\tp_3_cascara\utn.h
 
-1527846734 source:c:\eli\tp_laboratorio_1\tp_laboratorio_1\tp_3_cascara\utn.c
+1527792900 source:c:\eli\tp_laboratorio_1\tp_laboratorio_1\tp_3_cascara\utn.c
 	<stdio.h>
 	<stdlib.h>
 	<ctype.h>
@@ -128,7 +130,7 @@
 	<string.h>
 	"funciones.h"
 
-1527850278 source:c:\eli\tp_laboratorio_1\tp_laboratorio_1\tp_3_cascara\funciones.c
+1527792797 source:c:\eli\tp_laboratorio_1\tp_laboratorio_1\tp_3_cascara\funciones.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -142,4 +144,29 @@
 	<conio.h>
 	<string.h>
 	"funciones.h"
+
+1527855968 source:c:\test\elifalcon\tp3\tp_laboratorio_1\tp_3_cascara\main.c
+	<stdio.h>
+	<stdlib.h>
+	"funciones.h"
+	"utn.h"
+
+1527853335 c:\test\elifalcon\tp3\tp_laboratorio_1\tp_3_cascara\funciones.h
+
+1527855968 c:\test\elifalcon\tp3\tp_laboratorio_1\tp_3_cascara\utn.h
+
+1527856919 source:c:\test\elifalcon\tp3\tp_laboratorio_1\tp_3_cascara\utn.c
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+	<conio.h>
+	<string.h>
+	"funciones.h"
+
+1527856238 source:c:\test\elifalcon\tp3\tp_laboratorio_1\tp_3_cascara\funciones.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"funciones.h"
+	"utn.h"
 

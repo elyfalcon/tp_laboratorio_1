@@ -2,10 +2,10 @@
 #define FUNCIONES_H_INCLUDED
 
 typedef struct{
-    char titulo[60];
+    char titulo[40];
     char genero[20];
     int duracion;
-    char descripcion[100];
+    char descripcion[120];
     int puntaje;
     char linkImagen[100];
     int estado;
@@ -35,7 +35,12 @@ int borrarPelicula(EMovie movie);
 void generarPagina(EMovie lista[], char nombre[]);
 
 
-int AgregarPeliculas(EMovie lista[],int); //Ver para borrar porque no la
+
+/** Modifica una pelicula
+ * \param un puntero a la estructura
+ * \param tamaño de la estructura
+ * \return
+ */
 
 void modificarPelis(EMovie* movie, int);
 
