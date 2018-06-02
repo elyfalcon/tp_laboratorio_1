@@ -4,7 +4,7 @@
 #include<conio.h>
 #include <string.h>
 #include "funciones.h"
-#define TAM 10
+
 
 
 
@@ -43,7 +43,6 @@ char ValidaDuracion(int minutos)
 char Responder(char mensaje[])
 {
     char resp;
-    //int flag=-1;
     printf("%s",mensaje);
     fflush(stdin);
     scanf("%s",&resp);
@@ -99,7 +98,7 @@ void AltaUnaxxxx(EMovie movie[],int cantidad)
             printf("Ingrese la descripcion de la pelicula: ");
             fflush(stdin);
             gets(movie[indice].descripcion);
-            printf("Ingrese el genero: "); //hacer un case
+            printf("Ingrese el genero: ");
             fflush(stdin);
             printf("\n");
             do
@@ -115,39 +114,37 @@ void AltaUnaxxxx(EMovie movie[],int cantidad)
             switch (num)
             {
             case 1:
-            //movie[indice].genero={"COMEDIA"};
-            strcpy(movie[indice].genero,"COMEDIA");
-            break;
-        case 2:
-        strcpy(movie[indice].genero,"DRAMA");
-        break;
-        case 3:
-        strcpy(movie[indice].genero,"CIENCIA FICCION");
-          break;
-        case 4:
-        strcpy(movie[indice].genero,"AVENTURA");
-        break;
-        case 5:
-        strcpy(movie[indice].genero,"TERROR");
-        break;
-        default:
-        printf("Ingrese una opcion correcta: \n");
-        break;
-    }
-     }while(num==-1);
-          //  gets(movie[indice].genero);
-            printf("Ingrese la duracion en minutos: \n");//limitar el tiempo y  el formato
+           
+                strcpy(movie[indice].genero,"COMEDIA");
+                break;
+            case 2:
+                strcpy(movie[indice].genero,"DRAMA");
+                break;
+            case 3:
+                strcpy(movie[indice].genero,"CIENCIA FICCION");
+                break;
+            case 4:
+                strcpy(movie[indice].genero,"AVENTURA");
+                break;
+            case 5:
+                strcpy(movie[indice].genero,"TERROR");
+                break;
+            default:
+                printf("Ingrese una opcion correcta: \n");
+                break;
+            }
+        }while(num==-1);
+
+            printf("Ingrese la duracion en minutos: \n");
             scanf("%d",&movie[indice].duracion);
             ValidaDuracion(movie[indice].duracion);
             do
             {
              puntaje=PedirEntero("\nIngrese el puntaje: (1 a 10) ");
-            //printf("Ingrese el puntaje: 1 a 10"); //validar de 1 a 10
              fflush(stdin);
-          //  scanf("%d",&movie[indice].puntaje);
-            movie[indice].puntaje=puntaje;
+             
             }while(puntaje>10 || puntaje<0);
-
+            movie[indice].puntaje=puntaje;
             printf("Ingrese la imagen:");
             gets(movie[indice].linkImagen);
             movie[indice].estado=1;
@@ -162,6 +159,7 @@ void AltaUnaxxxx(EMovie movie[],int cantidad)
         }//fin while
 
             GuardarPelicula(movie,cantidad);
+            system("cls");
 }
 int Inicializa_Peliculas(EMovie lista_movies[],int limite)
 {
@@ -174,6 +172,7 @@ int Inicializa_Peliculas(EMovie lista_movies[],int limite)
        {
            retorno=0;
            lista_movies[i].id=0;
+           lista_movies[i].estado=0;
         }
    }
     return retorno;
@@ -213,9 +212,14 @@ void AbreArchivo(EMovie movie[],char nombre[])
 
         }
         //aca deberia crearlo
+
+    }//fin if
+    else
+    {
         printf("\nSe creo el archivo\n");
         fclose(pArch);
     }
+
 }
 void MostrarUnaPeli(EMovie movie)
 {
@@ -229,7 +233,6 @@ void ListarPeliculas(EMovie lista_pelis[],int limite)
 {
 
     int i;
-   // system("cls");
 
     if(limite > 0 && lista_pelis != NULL)
     {
@@ -242,6 +245,7 @@ void ListarPeliculas(EMovie lista_pelis[],int limite)
         }
 
     }
+    system("pause");
 }
 
 void BajaPeliculas(EMovie movies[],int tam)
@@ -257,21 +261,23 @@ void BajaPeliculas(EMovie movies[],int tam)
 	{
 		if(ent==movies[i].id)
 		{
-			printf("Datos a eliminar:\n");
+			printf("--------Datos a eliminar: -----------\n");
 			MostrarUnaPeli(movies[i]);
-			printf("\nSeguro desea dar de baja?");
-			opcion=getche();
-
-			if(opcion=='s')
+			/*printf("\nSeguro desea eliminar esta pelicula?; ");
+			opcion=getche();+*/
+            opcion=Responder("\nSeguro desea eliminar esta pelicula?:");
+			if(opcion=='S')
 			{
 				movies[i].id=0;
 				movies[i].estado=-1;
-				printf("\n­­Registro eliminado!!");
+				printf("\n­­Registro eliminado!!\n");
+				system("pause");
                 GuardarPelicula(movies,tam);
 			}
 			else
 			{
-				printf("\nEl registro no fue eliminado!");
+				printf("\nEl registro no fue eliminado!\n");
+				system("pause");
 			}
 			flag=1;
 			break;
@@ -290,15 +296,18 @@ int GuardarPelicula(EMovie movie[],int cantidad)
 
 
  //   if((pArch=fopen("pelis.dat","rb"))==NULL)
-    {
+ //   {
         if((pArch=fopen("pelis.dat","wb"))==NULL)
         {
             printf("\nEl archivo no pudo ser abierto");
         }
-        fwrite(&movie,sizeof(EMovie),cantidad,pArch);
+        else{
+              fwrite(movie,sizeof(EMovie),cantidad,pArch);
         retorno=1;
         fclose(pArch);
-    }
+        }
+
+   // }
     return retorno;
 }
 void CrearListado(EMovie *peli,int cant)
@@ -331,7 +340,7 @@ void CrearListado(EMovie *peli,int cant)
       printf("Listado creado con exito\n");
       system("pause");
 }
-int cargarDesdeArchivo(EMovie *movie)
+int cargarDesdeArchivo(EMovie *movie,int TAM)
 {
 	int flag = 0;
 	FILE *pArchivo;
@@ -349,16 +358,17 @@ int cargarDesdeArchivo(EMovie *movie)
 
 	if(flag ==0)
 	{
-	fread(pArchivo,sizeof(EMovie),TAM,pArchivo);
+	fread(movie,sizeof(EMovie),TAM,pArchivo);
     }
 
 	fclose(pArchivo);
 	return 0;
 
 }
-char ElegirGenero(EMovie *,int indice)
+void ElegirGenero(EMovie *movie,int indice)
 {
-     printf("Ingrese el genero: "); //hacer un case
+     int num;
+     printf("Ingrese el genero: ");
             fflush(stdin);
             printf("\n");
             do
@@ -391,7 +401,7 @@ char ElegirGenero(EMovie *,int indice)
             default:
                 printf("Ingrese una opcion correcta: \n");
                 break;
-            }/
+            }// fin switch
         }while(num==-1);
-    
+
 }

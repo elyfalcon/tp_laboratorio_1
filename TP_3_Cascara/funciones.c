@@ -179,12 +179,12 @@ void modificarPelis(EMovie* movie, int limite)
     int i;
     int id,indice,punt, flag=0;
     char resp='S';
-
 	int opcion;
 	system("cls");
 	cargarDesdeArchivo(movie);
 	ListarPeliculas(movie,limite);
 	id=PedirEntero("\nIngrese el Id de la Pelicula a modificar: ");
+
 
         for(i=0; i<limite; i++)
         {
@@ -210,14 +210,21 @@ void modificarPelis(EMovie* movie, int limite)
                             case 3:
                                 printf("\nIngrese duracion en minutos");
                                 scanf("%d",&movie[i].duracion);
+                                ValidaDuracion(movie[i].duracion);
                                 break;
                             case 4:
                                 printf("\nIngrese la nueva descripcion");
                                 gets(movie[i].descripcion);
                                 break;
                             case 5:
-                                punt=PedirEntero("\nIngrese el puntaje: (1 a 10)");
+                                 do
+                                {
+                                punt=PedirEntero("\nIngrese el puntaje: (1 a 10) ");
+                                fflush(stdin);
                                 movie[i].puntaje=punt;
+                                }while(punt>10 || punt<0);
+
+
                                 break;
                             case 6:
                                 opcion=-1;
@@ -236,14 +243,19 @@ void modificarPelis(EMovie* movie, int limite)
                     {printf("\nSe cancelo la modificacion\n");
                     system("pause");
                     system("cls");}
+                    flag=1;
 
                 }//fin if(resp)
 
 
             }//fin if (movie[i].id
+             break;
         }//fin for
- //   }//fin if indice
-
+        if(flag==0)
+            {
+                printf("\nNo existe la pelicula\n");
+                system("pause");
+            }
 
 
 }

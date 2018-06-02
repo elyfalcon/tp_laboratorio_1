@@ -98,7 +98,7 @@ void AltaUnaxxxx(EMovie movie[],int cantidad)
             printf("Ingrese la descripcion de la pelicula: ");
             fflush(stdin);
             gets(movie[indice].descripcion);
-            printf("Ingrese el genero: "); //hacer un case
+            printf("Ingrese el genero: ");
             fflush(stdin);
             printf("\n");
             do
@@ -114,39 +114,36 @@ void AltaUnaxxxx(EMovie movie[],int cantidad)
             switch (num)
             {
             case 1:
-            //movie[indice].genero={"COMEDIA"};
-            strcpy(movie[indice].genero,"COMEDIA");
-            break;
-        case 2:
-        strcpy(movie[indice].genero,"DRAMA");
-        break;
-        case 3:
-        strcpy(movie[indice].genero,"CIENCIA FICCION");
-          break;
-        case 4:
-        strcpy(movie[indice].genero,"AVENTURA");
-        break;
-        case 5:
-        strcpy(movie[indice].genero,"TERROR");
-        break;
-        default:
-        printf("Ingrese una opcion correcta: \n");
-        break;
-    }
-     }while(num==-1);
-          //  gets(movie[indice].genero);
-            printf("Ingrese la duracion en minutos: \n");//limitar el tiempo y  el formato
+
+                strcpy(movie[indice].genero,"COMEDIA");
+                break;
+            case 2:
+                strcpy(movie[indice].genero,"DRAMA");
+                break;
+            case 3:
+                strcpy(movie[indice].genero,"CIENCIA FICCION");
+                break;
+            case 4:
+                strcpy(movie[indice].genero,"AVENTURA");
+                break;
+            case 5:
+                strcpy(movie[indice].genero,"TERROR");
+                break;
+            default:
+                printf("Ingrese una opcion correcta: \n");
+                break;
+            }
+        }while(num==-1);
+
+            printf("Ingrese la duracion en minutos: \n");
             scanf("%d",&movie[indice].duracion);
             ValidaDuracion(movie[indice].duracion);
             do
             {
              puntaje=PedirEntero("\nIngrese el puntaje: (1 a 10) ");
-            //printf("Ingrese el puntaje: 1 a 10"); //validar de 1 a 10
              fflush(stdin);
-          //  scanf("%d",&movie[indice].puntaje);
-            movie[indice].puntaje=puntaje;
+              movie[indice].puntaje=puntaje;
             }while(puntaje>10 || puntaje<0);
-
             printf("Ingrese la imagen:");
             gets(movie[indice].linkImagen);
             movie[indice].estado=1;
@@ -155,7 +152,7 @@ void AltaUnaxxxx(EMovie movie[],int cantidad)
         }//fin if
         else
         {
-            printf("\n--------No hay mas lugar, no se pudo ingresar:");
+            printf("\n--------No hay mas lugar, no se pudo ingresar:------");
         }
 
         }//fin while

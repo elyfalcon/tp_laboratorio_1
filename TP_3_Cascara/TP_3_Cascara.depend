@@ -70,7 +70,7 @@
 	"funciones.h"
 	"utn.h"
 
-1527889263 source:c:\eli\utn\tp_laboratorioi\tp_laboratorio_1\tp_3_cascara\funciones.c
+1527891434 source:c:\eli\utn\tp_laboratorioi\tp_laboratorio_1\tp_3_cascara\funciones.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -137,7 +137,7 @@
 	"funciones.h"
 	"utn.h"
 
-1527890794 source:c:\eli\utn\tp_laboratorioi\tp_laboratorio_1\tp_3_cascara\utn.c
+1527897147 source:c:\eli\utn\tp_laboratorioi\tp_laboratorio_1\tp_3_cascara\utn.c
 	<stdio.h>
 	<stdlib.h>
 	<ctype.h>
