@@ -26,7 +26,7 @@ ArrayList* al_newArrayList(void)
 
     if(this != NULL)
     {
-        pElements = malloc(sizeof(void *)*AL_INITIAL_VALUE ); //crea la lista de punteros a los datos, pElements es doble puntero a void
+        pElements = malloc(sizeof(void *)*AL_INITIAL_VALUE );
         if(pElements != NULL)
         {
             this->size=0;
@@ -70,6 +70,7 @@ ArrayList* al_newArrayList(void)
 int al_add(ArrayList* this, void* pElement)
 {
     int returnAux = -1;
+
     int flag=0;
     void** aux;
 
@@ -94,9 +95,10 @@ int al_add(ArrayList* this, void* pElement)
 
  /*       if(aux!=NULL)
         {
-
         }*/
     }
+
+
 
     return returnAux;
 }
@@ -109,11 +111,13 @@ int al_add(ArrayList* this, void* pElement)
 int al_deleteArrayList(ArrayList* this)
 {
     int returnAux = -1;
+
     if(this!=NULL)
-    {
+        {
         free(this);
         returnAux=0;
-    }
+        }
+
 
     return returnAux;
 }
@@ -146,6 +150,7 @@ void* al_get(ArrayList* this, int index)
 {
     void* returnAux = NULL;
 
+
     if(this!=NULL && index>=0 && index<this->size) //es < estricto porque size apunta al proximo valor
     {
         returnAux=this->pElements[index];
@@ -166,6 +171,7 @@ void* al_get(ArrayList* this, int index)
 int al_contains(ArrayList* this, void* pElement)
 {
     int returnAux = -1;
+
     int i;
 
     if(this!=NULL && pElement!=NULL)
@@ -185,6 +191,7 @@ int al_contains(ArrayList* this, void* pElement)
 
     }//fin if(this!=)
 
+
     return returnAux;
 }
 
@@ -200,6 +207,7 @@ int al_contains(ArrayList* this, void* pElement)
 int al_set(ArrayList* this, int index,void* pElement)
 {
     int returnAux = -1;
+
     if(this!=NULL && pElement!=NULL)
     {
         if(index<(this->size) && index>=0)
@@ -207,7 +215,6 @@ int al_set(ArrayList* this, int index,void* pElement)
               *(this->pElements+index)=pElement;
               returnAux=0;
           }
-
     }
 
     return returnAux;
@@ -224,21 +231,30 @@ int al_remove(ArrayList* this,int index)
 {
     int returnAux = -1;
     int i;
+    int metrica;
+
 
     if(this!=NULL && index>=0 && index<this->size)
     {
-        for(i=0;i<this->size;i++)
+        metrica=this->reservedSize-this->size;
+        for(i=index;i<this->size;i++)
         {
-            if(this->pElements[i]==this->pElements[index])
+          /*  if(this->pElements[i]==this->pElements[index])
             {
                 free(this->pElements[i]);
                 this->pElements[i]=NULL;
                 returnAux=0;
-            }
-
+            }*/
+            this->pElements[i]=this->pElements[i+1];
         }//fin for
-
+        this->size--;
+        returnAux=0;
     }//fin if(this!
+/*
+    if(metrica==0)
+    {
+        pElements=realloc(pElements,reserveSize+)
+    }   */
 
     return returnAux;
 }
@@ -254,6 +270,13 @@ int al_clear(ArrayList* this)
 {
     int returnAux = -1;
 
+    if(this!=NULL)
+    {
+        free(this->pElements);
+        this->size=0;
+        returnAux=0;
+    }
+
     return returnAux;
 }
 
@@ -267,6 +290,27 @@ int al_clear(ArrayList* this)
 ArrayList* al_clone(ArrayList* this)
 {
     ArrayList* returnAux = NULL;
+ /*   returnAux=al_newArrayList();
+    int i,cant;
+
+    if(this!=NULL)
+    {
+    cant=this->size;
+    for(i=0;i<cant;i++)
+    {
+       //  returnAux=this;
+         //this->pElements+i=returnAux->pElements[i];
+        // returnAux=this->pElements+i;
+        //returnAux->size=this->size;
+       // al_add(returnAux,this->pElements+i);
+       *(this->pElements+i)=returnAux;
+       returnAux->size++;
+     }
+
+
+    }//fin if(this!)*/
+
+
 
     return returnAux;
 }
@@ -284,6 +328,16 @@ ArrayList* al_clone(ArrayList* this)
 int al_push(ArrayList* this, int index, void* pElement)
 {
     int returnAux = -1;
+
+    if(this!=NULL && pElement!=NULL && index<this->size && index >=0)
+    {
+        if(this->size==this->reservedSize)
+        {
+            resizeUp(this);
+        }
+        this->pElements[index]=pElement;
+        returnAux=0;
+    }//fin if(this!)
 
     return returnAux;
 }
@@ -390,17 +444,24 @@ int resizeUp(ArrayList* this)
     void** aux;
 
     //aux = (void**)realloc(this->pElements, sizeof(void*)*(this->reservedSize + AL_INCREMENT));
+
     aux = realloc(this->pElements, sizeof(void*)*(this->reservedSize + AL_INCREMENT));
 
     if(aux != NULL)
     {
+
         this->reservedSize+= AL_INCREMENT;
+
         this->pElements = aux;
+
         returnAux = 0;
 
     }
 
+
+
     return returnAux;
+
 }
 
 /** \brief  Expand an array list
