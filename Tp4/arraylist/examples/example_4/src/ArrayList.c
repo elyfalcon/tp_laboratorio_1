@@ -463,6 +463,36 @@ ArrayList* al_subList(ArrayList* this,int from,int to)
 int al_containsAll(ArrayList* this,ArrayList* this2)
 {
     int returnAux = -1;
+    int i,cant,cont=0;
+    if(this!=NULL && this2!=NULL)
+    {
+
+        if(cant>=this2->size && cant>=0 && this2->size >=0)
+        {
+            cant=this->size;
+            for(i=0;i<cant;i++)
+            {
+            if(this->pElements==this2->pElements)
+                cont++;
+            else
+               {
+                returnAux=0;
+                break;
+                }
+            }//fin for(i=0)
+
+            if(cont==this2->size)
+            {
+                returnAux=1;
+            }
+            else
+                returnAux=0;
+        }//fin if(cant<)
+        else
+           returnAux=0;
+
+    }//fin if(this)
+
 
     return returnAux;
 }
@@ -477,6 +507,8 @@ int al_containsAll(ArrayList* this,ArrayList* this2)
 int al_sort(ArrayList* this, int (*pFunc)(void* ,void*), int order)
 {
     int returnAux = -1;
+
+
 
     return returnAux;
 }
@@ -522,11 +554,17 @@ int resizeUp(ArrayList* this)
 int expand(ArrayList* this,int index)
 {
     int returnAux = -1;
-  /*  int i;
-    if(index!=NULL && this!=NULL)
+    int i,cant;
+    if(index!=NULL && index <cant && this!=NULL)
     {
-        for(i=)
-    }*/
+        cant=this->size;
+        for(i=cant;i>index;i--)
+        {
+            this->pElements[i+1]=this->pElements[i];
+            returnAux=0;
+        }//fin for
+
+    }//fin if(index
 
     return returnAux;
 }
