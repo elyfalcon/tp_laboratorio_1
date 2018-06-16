@@ -507,7 +507,13 @@ int al_containsAll(ArrayList* this,ArrayList* this2)
 int al_sort(ArrayList* this, int (*pFunc)(void* ,void*), int order)
 {
     int returnAux = -1;
-
+    int resultado;
+    if(this->size != NULL)
+    {
+        resultado=pFunc()
+        
+        
+    }
 
 
     return returnAux;

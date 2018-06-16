@@ -472,7 +472,7 @@ int al_containsAll(ArrayList* this,ArrayList* this2)
             cant=this->size;
             for(i=0;i<cant;i++)
             {
-            if(this->pElements==this2->pElements)
+            if(this->pElements[i]==this2->pElements[i])
                 cont++;
             else
                {
@@ -507,7 +507,13 @@ int al_containsAll(ArrayList* this,ArrayList* this2)
 int al_sort(ArrayList* this, int (*pFunc)(void* ,void*), int order)
 {
     int returnAux = -1;
+  //  int resultado;
+   /* if(this->size != NULL)
+    {
+        resultado=pFunc()
 
+
+    }*/
 
 
     return returnAux;
