@@ -176,7 +176,6 @@ int al_contains(ArrayList* this, void* pElement)
 
     if(this!=NULL && pElement!=NULL)
     {
-        returnAux=0;
         for(i=0;i<this->size;i++)
         {
             if(this->pElements[i]==pElement)
@@ -435,7 +434,7 @@ ArrayList* al_subList(ArrayList* this,int from,int to)
     if(this!=NULL)
     {
 
-        if(from>=0 && from<to && from<cant && to >from && to<=cant)//corregir
+        if(from>=0 && from<to && from<cant && to >from && to<=cant)
         {
         returnAux=al_newArrayList();
         cant=this->size;
@@ -464,25 +463,26 @@ ArrayList* al_subList(ArrayList* this,int from,int to)
 int al_containsAll(ArrayList* this,ArrayList* this2)
 {
     int returnAux = -1;
-    int i,cont=0;
+    int i,cant,cont=0;
 
     if(this!=NULL && this2!=NULL)
     {
-        returnAux=0;
-
-        if(this->len(this) >= this2->len(this2) && this->len(this)>0 && this2->len(this2) >0)
+        if(this->this >=this2->size && cant>0 && this2->size >0)
         {
-            for(i=0;i<this->len(this);i++)
+            cant=this->size;
+            returnAux=0;
+            for(i=0;i<cant;i++)
             {
-                if(al_contains(this,al_get(this2,i))==1)
+            if(this->pElements[i]==this2->pElements[i])
                    cont++;
             else
                {
+               // returnAux=0;
                 break;
                 }
             }//fin for(i=0)
 
-            if(cont==this2->len(this2))
+            if(cont==this2->size)
             {
                 returnAux=1;
             }
@@ -565,7 +565,7 @@ int expand(ArrayList* this,int index)
     int i,cant;
     if(index!=NULL && index <cant && this!=NULL)
     {
-        cant=this->size;//cambiar
+        cant=this->size;
         for(i=cant;i>index;i--)
         {
             this->pElements[i+1]=this->pElements[i];
