@@ -498,40 +498,34 @@ int al_sort(ArrayList* this, int (*pFunc)(void* ,void*), int order)
     int i,j;
 
 
-    if(this->size != NULL && pFunc!=NULL)
+    if(this!= NULL && pFunc!=NULL && (order==0 || order==1))
     {
-    aux=(void*)malloc(sizeof(int));
+
     if(aux!=NULL)
     {
-        for(i=0;i<=al_len(this)-1;i++)
+        for(i=0;i < al_len(this)-1;i++)
         {
             for(j=i+1;j<al_len(this);j++)
             {
                 if(order==0)
                 {
-                if(pFunc(al_get(this,i),al_get(this,j))==-1);
-                {
-                  //  aux=al_get(this,i);
-               //   aux=this->pElements[i];
-                  al_set(aux,i,this->pElements[i]);
-                   // this->pElements[i]=this->pElements[j];
-                    al_set(this->pElements,i,this->pElements[j]);
-
-                   // this->pElements[j]=aux;
-                    al_set(this->pElements,i,aux);
-                }//fin if
+                    if(pFunc(al_get(this,i),al_get(this,j))==-1)
+                    {
+                   aux=al_get(this,i);
+                   al_set(this,i,al_get(this,j));
+                   al_set(this,j,aux);
+                    }//fin if
                 returnAux=0;
-                }
+                }//fin if(order==0)
                 if(order==1)
                 {
-                if(pFunc(al_get(this,i),al_get(this,j))==1);
-                {
-                   // aux=al_get(this,j);
-                   aux=this->pElements[i];
-                    this->pElements[i]=this->pElements[j];
-                  //  this->pElements[j]=aux;
-                    al_set(this->pElements,i,aux);
-                }
+                    if(pFunc(al_get(this,i),al_get(this,j))==1)
+                    {
+                    aux=al_get(this,i);
+                    al_set(this,i,al_get(this,j));
+                    al_set(this,j,aux);
+
+                    }
                 returnAux=0;
                 }//fin if
             }//fin 1er for
