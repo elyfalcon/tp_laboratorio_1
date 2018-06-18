@@ -70,7 +70,6 @@ ArrayList* al_newArrayList(void)
 int al_add(ArrayList* this, void* pElement)
 {
     int returnAux = -1;
-
     int flag=0;
     void** aux;
 
@@ -82,7 +81,6 @@ int al_add(ArrayList* this, void* pElement)
            {
              flag=1;// marca que no agregue el elemento porque no hay espacio
            }
-
         }
         if(flag==0)
             {
@@ -132,7 +130,6 @@ int al_len(ArrayList* this)
     if(this!=NULL)
     {
         returnAux=this->size;
-
     }
 
     return returnAux;
@@ -292,7 +289,7 @@ ArrayList* al_clone(ArrayList* this)
     if(this!=NULL)
     {
      returnAux=al_subList(this,0,al_len(this));
-    }//fin if(this!)*/
+    }//fin if(this!)
 
     return returnAux;
 }
@@ -311,7 +308,7 @@ int al_push(ArrayList* this, int index, void* pElement)
 {
     int returnAux = -1;
 
-    if(this!=NULL && pElement!=NULL && index<=this->size && index >=0)
+    if(this!=NULL && pElement!=NULL && index < al_len(this) && index >=0)
     {
         if(expand(this,index)==0)
            {
@@ -374,10 +371,10 @@ int al_isEmpty(ArrayList* this)
 
     if(this!=NULL)
     {
-        if(this->len(this)==0)
+        if(al_len(this)==0)
             returnAux=1;
         else
-            if(this->len(this)>0)
+            if(al_len(this)>0)
             returnAux=0;
     }
 
@@ -421,7 +418,6 @@ ArrayList* al_subList(ArrayList* this,int from,int to)
     int cant,i;
     if(this!=NULL)
     {
-
         if(from>=0 && from<to && from<this->len(this) && to >from && to<=this->len(this))
         {
         returnAux=al_newArrayList();
@@ -433,7 +429,6 @@ ArrayList* al_subList(ArrayList* this,int from,int to)
 
         }//fin if from
     }//fin this!
-
 
     return returnAux ;
 }
@@ -497,23 +492,21 @@ int al_sort(ArrayList* this, int (*pFunc)(void* ,void*), int order)
     int* aux;
     int i,j;
 
-
     if(this!= NULL && pFunc!=NULL && (order==0 || order==1))
     {
-
-    if(aux!=NULL)
-    {
-        for(i=0;i < al_len(this)-1;i++)
+        if(aux!=NULL)
         {
-            for(j=i+1;j<al_len(this);j++)
+            for(i=0;i < al_len(this)-1;i++)
             {
-                if(order==0)
+                for(j=i+1;j<al_len(this);j++)
                 {
-                    if(pFunc(al_get(this,i),al_get(this,j))==-1)
+                    if(order==0)
                     {
-                   aux=al_get(this,i);
-                   al_set(this,i,al_get(this,j));
-                   al_set(this,j,aux);
+                        if(pFunc(al_get(this,i),al_get(this,j))==-1)
+                        {
+                        aux=al_get(this,i);
+                        al_set(this,i,al_get(this,j));
+                        al_set(this,j,aux);
                     }//fin if
                 returnAux=0;
                 }//fin if(order==0)
@@ -521,9 +514,9 @@ int al_sort(ArrayList* this, int (*pFunc)(void* ,void*), int order)
                 {
                     if(pFunc(al_get(this,i),al_get(this,j))==1)
                     {
-                    aux=al_get(this,i);
-                    al_set(this,i,al_get(this,j));
-                    al_set(this,j,aux);
+                        aux=al_get(this,i);
+                        al_set(this,i,al_get(this,j));
+                        al_set(this,j,aux);
 
                     }
                 returnAux=0;
@@ -599,7 +592,8 @@ int expand(ArrayList* this,int index)
 
         for(i=this->len(this);i>index;i--)
         {
-            if(i==this->len(this))
+          //  if(i==this->len(this))
+            if(i==al_len(this))
             {
                if(al_add(this,al_get(this,i))==0)
                returnAux=0;
@@ -633,7 +627,8 @@ int contract(ArrayList* this,int index)
     {
         for(i=index;i<al_len(this);i++)
         {
-            this->pElements[i]=this->pElements[i+1];
+          //  this->pElements[i]=this->pElements[i+1];
+            al_set(this,i,al_get(this,i+1));
         }
         returnAux=0;
 
