@@ -147,7 +147,7 @@ void* al_get(ArrayList* this, int index)
     void* returnAux = NULL;
 
 
-    if(this!=NULL && index>=0 && index<this->size) //es < estricto porque size apunta al proximo valor
+    if(this!=NULL && index>=0 && index < this->len(this)) //es < estricto porque size apunta al proximo valor
     {
         returnAux=this->pElements[index];
     }
@@ -172,7 +172,7 @@ int al_contains(ArrayList* this, void* pElement)
     if(this!=NULL && pElement!=NULL)
     {
         returnAux=0;
-        for(i=0;i<this->size;i++)
+        for(i=0;i<this->len(this);i++)
         {
             if(this->get(this,i)==pElement)
             {
@@ -312,7 +312,8 @@ int al_push(ArrayList* this, int index, void* pElement)
     {
         if(expand(this,index)==0)
            {
-             returnAux=al_set(this->pElements,index,pElement);
+             //returnAux=al_set(this->pElements,index,pElement);
+             returnAux=al_set(this,index,pElement);
            }
       //  if(this->size==this->reservedSize)
       //  {
@@ -348,7 +349,8 @@ int al_indexOf(ArrayList* this, void* pElement)
     {
         for(i=0;i<=al_len(this);i++)
         {
-            if(this->pElements[i]==pElement)
+           // if(this->pElements[i]==pElement)
+            if(al_get(this,i)==pElement)
             {
             returnAux=i;
             break;
@@ -424,7 +426,8 @@ ArrayList* al_subList(ArrayList* this,int from,int to)
         //cant=this->size;
           for(i=from;i<to;i++)
           {
-              al_add(returnAux,this->pElements[i]);
+            //  al_add(returnAux,this->pElements[i]);
+              al_add(returnAux,al_get(this,i));
           }//fin for(i=from)
 
         }//fin if from
